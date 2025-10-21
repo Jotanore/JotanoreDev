@@ -8,7 +8,7 @@
     "start": "live-server --port=5500",
     "build:ts": "tsc",
     "watch:ts": "tsc --watch",
-    "build:tailwind": "tailwindcss build -i ./src/css/styles.css -o ./dist/tailwind.css --watch"
+    "build:tailwind": "tailwindcss build -i ./src/css/styles.css -o ./src/css/tailwind.css --watch"
   },
   "keywords": [],
   "author": "",
