@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 console.log("tres");
 const indexButton = document.getElementById('index-button');
 const experienceButton = document.getElementById('experience-button');
@@ -18,7 +17,37 @@ document.addEventListener('DOMContentLoaded', () => {
     statsButton.addEventListener('click', showStats);
     projectsButton.addEventListener('click', showProjects);
     contactButton.addEventListener('click', showContact);
-    getProjects();
+    const line = document.getElementById("timeline-draw");
+    const eventsUp = document.getElementById("events-up");
+    const eventsDown = document.getElementById("events-down");
+    // Crear eventos dinámicamente
+    const createEvent = (container, data, colorClass) => {
+        data.forEach(event => {
+            const div = document.createElement("div");
+            div.className = `event text-center w-1/5 ${colorClass}`;
+            div.innerHTML = `<div class="text-sm font-bold">${event.year}</div><div>${event.title}</div>`;
+            container.appendChild(div);
+        });
+    };
+    createEvent(eventsUp, studies, "text-blue-400");
+    createEvent(eventsDown, jobs, "text-yellow-400");
+    // Animar línea
+    setTimeout(() => {
+        line.classList.add("animate");
+    }, 100);
+    // Mostrar eventos escalonadamente, sincronizando estudio + trabajo
+    const totalDuration = 3200; // duración total de la línea
+    const steps = studies.length; // número de puntos (asumimos igual para estudios y trabajos)
+    for (let i = 0; i < steps; i++) {
+        const delay = (i / steps) * totalDuration;
+        setTimeout(() => {
+            const upEvent = eventsUp.children[i];
+            const downEvent = eventsDown.children[i];
+            upEvent.classList.add("visible");
+            downEvent.classList.add("visible");
+        }, delay);
+    }
+    drawProjects();
 });
 function showIndex() {
     indexContainer.classList.remove('hidden');
@@ -66,12 +95,53 @@ async function getProjects() {
         if (!response.ok)
             throw new Error('Error getting projects');
         const projects = await response.json();
-        console.log(projects);
         return projects;
     }
     catch (error) {
         console.log(error);
+        return [];
     }
 }
+async function drawProjects() {
+    const projects = await getProjects();
+    console.log("saddasdf" + projects);
+    projects.forEach((project) => {
+        const projectContainer = document.getElementById('projects-container');
+        const html = `
+            <div class="col max-w-72">
+                <div class="card">
+                <img src="${project.img}" class="card-img-top max-h-60" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${project.name}</h5>
+                    <p class="card-text">${project.description}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="${project.link}" class="btn btn-primary text-body-secondary">Link</a>
+                </div>
+                </div>
+            </div>
+            `;
+        projectContainer?.insertAdjacentHTML('beforeend', html);
+    });
+}
+// Datos de ejemplo
+const studies = [
+    { year: "", title: "" },
+    { year: "2020-2023", title: "FP Superior Desarollo de Videojuegos" },
+    { year: "", title: "" },
+    { year: "", title: "" },
+    { year: "", title: "" },
+    { year: "2024", title: "Curso Javascript from Zero to Expert" },
+    { year: "2025", title: `Bootcamp Desarrollo Fullstack <br> Curso Desarollo en Java` },
+];
+const jobs = [
+    { year: "2018-2019", title: "Esports Coach @ Baskonia" },
+    { year: "2020", title: "Expendedor @ Avia <br> Freelance eSports Coach" },
+    { year: "2021", title: "Freelance eSports Coach" },
+    { year: "2022", title: "Auxiliar @ Dreamfit <br> Gaming Content Leader @ Cracked.club <br> Freelance eSports Coach" },
+    { year: "->", title: "" },
+    { year: "2024", title: "Monitor Polivalente @ Dreamfit" },
+    { year: "->", title: "" },
+];
 export {};
 //# sourceMappingURL=index.js.map
