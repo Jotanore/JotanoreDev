@@ -1,5 +1,7 @@
 console.log("tres");
 
+import type { Project } from "../models/models.ts";
+
 const indexButton: HTMLButtonElement = document.getElementById('index-button') as HTMLButtonElement;
 const experienceButton: HTMLButtonElement = document.getElementById('experience-button') as HTMLButtonElement;
 const statsButton: HTMLButtonElement = document.getElementById('stats-button') as HTMLButtonElement;
@@ -25,7 +27,45 @@ document.addEventListener('DOMContentLoaded', () => {
     projectsButton.addEventListener('click', showProjects);
     contactButton.addEventListener('click', showContact);
 
-    getProjects();
+    const line = document.getElementById("timeline-draw") as HTMLDivElement;
+    const eventsUp = document.getElementById("events-up") as HTMLDivElement;
+    const eventsDown = document.getElementById("events-down") as HTMLDivElement;
+
+    // Crear eventos dinámicamente
+    const createEvent = (container: HTMLDivElement, data: EventData[], colorClass: string) => {
+        data.forEach(event => {
+        const div = document.createElement("div");
+        div.className = `event text-center w-1/5 ${colorClass}`;
+        div.innerHTML = `<div class="text-sm font-bold">${event.year}</div><div>${event.title}</div>`;
+        container.appendChild(div);
+        });
+    };
+
+    createEvent(eventsUp, studies, "text-blue-400");
+    createEvent(eventsDown, jobs, "text-yellow-400");
+
+    // Animar línea
+   setTimeout(() => {
+    line.classList.add("animate");
+  }, 100);
+
+  // Mostrar eventos escalonadamente, sincronizando estudio + trabajo
+  const totalDuration = 3200; // duración total de la línea
+  const steps = studies.length; // número de puntos (asumimos igual para estudios y trabajos)
+
+  for (let i = 0; i < steps; i++) {
+    const delay = (i / steps) * totalDuration;
+
+    setTimeout(() => {
+      const upEvent = eventsUp.children[i] as HTMLDivElement;
+      const downEvent = eventsDown.children[i] as HTMLDivElement;
+
+      upEvent.classList.add("visible");
+      downEvent.classList.add("visible");
+    }, delay);
+  }
+
+        drawProjects();
     
 });
 
@@ -89,19 +129,79 @@ function showContact():void{
     console.log('contact');
 }
 
-async function getProjects():Promise<unknown>{
+async function getProjects():Promise<Project[]>{
 
     try{
         const response = await fetch('./src/api/projects.json');
         if (!response.ok) throw new Error('Error getting projects');
 
         const projects = await response.json();
-        console.log(projects);
+
         return projects;
 
     }catch(error){
         console.log(error);
+        return [];
     }
 }
+
+async function drawProjects():Promise<void>{
+
+    const projects: Project[] = await getProjects();
+    console.log("saddasdf" + projects);
+
+    projects.forEach((project: Project) => {
+
+        const projectContainer = document.getElementById('projects-container') as HTMLDivElement | null;
+
+        const html: string = `
+            <div class="col max-w-72">
+                <div class="card">
+                <img src="${project.img}" class="card-img-top max-h-60" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${project.name}</h5>
+                    <p class="card-text">${project.description}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="${project.link}" class="btn btn-primary text-body-secondary">Link</a>
+                </div>
+                </div>
+            </div>
+            `;
+
+        projectContainer?.insertAdjacentHTML('beforeend', html);
+
+
+
+    })
+}
+
+interface EventData {
+  year: string;
+  title: string;
+}
+
+// Datos de ejemplo
+const studies: EventData[] = [
+                { year: "", title: "" },
+  { year: "2020-2023", title: "FP Superior Desarollo de Videojuegos" },
+            { year: "", title: "" },
+          { year: "", title: "" },
+              { year: "", title: "" },
+                      { year: "2024", title: "Curso Javascript from Zero to Expert" },
+  { year: "2025", title: `Bootcamp Desarrollo Fullstack <br> Curso Desarollo en Java` },
+
+];
+
+const jobs: EventData[] = [
+  { year: "2018-2019", title: "Esports Coach @ Baskonia" },
+    { year: "2020", title: "Expendedor @ Avia <br> Freelance eSports Coach" },
+  { year: "2021", title: "Freelance eSports Coach" },
+    { year: "2022", title: "Auxiliar @ Dreamfit <br> Gaming Content Leader @ Cracked.club <br> Freelance eSports Coach" },
+      { year: "->", title: "" },
+  { year: "2024", title: "Monitor Polivalente @ Dreamfit" },
+        { year: "->", title: "" },
+];
+
 
 
