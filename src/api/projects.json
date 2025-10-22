@@ -2,24 +2,24 @@
     {
         "name": "Webv1.0",
         "link": "https://github.com/Jotanore/Webv1.0",
-        "description": "",
-        "img" : "..."
+        "description": "Version 1 de mi landing web, tecnologías usadas: HTML, CSS, y JS.",
+        "img" : "./src/img/4d0.png"
     },
     {
         "name": "Quantum Dice",
         "link": "https://github.com/Jotanore/QuantumDice",
-        "description": "",
-        "img" : "..."
+        "description": "Tira el dado, cada vez que pulsas el boton se cambia la imagen, hasta que lo descubres no sabes que numero es. Tecnologías usadas: HTML, CSS, y JS.",
+        "img" : "./src/img/4d0.png"
     },{
         "name": "KartHub Front-End",
         "link": "https://github.com/Jotanore/PFBNeoland",
-        "description": "",
-        "img" : "..."
+        "description": "Parte Front del proyecto KartHub, tecnologías usadas: HTML, Tailwind, y JS.",
+        "img" : "./src/img/4d0.png"
     },
     {
         "name": "KartHub Back-End",
         "link": "https://github.com/Jotanore/PFBServerNeoland",
-        "description": "",
-        "img" : "..."
+        "description": "Parte Back del proyecto KartHub, tecnologías usadas: Node, Express, MongoDB, y JS.",
+        "img" : "./src/img/4d0.png"
     }        
 ]
