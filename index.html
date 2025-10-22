@@ -46,7 +46,7 @@
     </div>
   </nav>
 
-  <div id="index-container" class="flex h-screen items-center justify-center">
+  <div id="index-container" class="flex h-screen items-center justify-center ">
     <div class="card flex h-[32rem] w-[64rem]">
       <div class="row g-0 flex h-full w-full items-center">
 
@@ -71,7 +71,7 @@
     </div>
   </div>
 
-  <div id="stats-container" class="flex h-screen items-center justify-center">
+  <div id="stats-container" class="flex h-screen items-center justify-center hidden">
     <div class="card flex h-[32rem] w-[64rem]">
       <div class="row g-0 flex h-full w-full items-center">
         <div class="col-md-4 h-full">
@@ -94,46 +94,27 @@
     </div>
   </div>
 
-  <div id="experience-container" class="flex h-full w-full items-center justify-center"> EKSPIRIENS CONTAINER </div>
+  <div id="experience-container" class="flex h-full w-full items-center justify-center"> 
+  
+<section id="timeline" class="relative w-full py-16">
+  <div class="relative w-11/12 mx-auto">
+
+    <!-- Línea principal -->
+    <div class="relative h-1 rounded-full overflow-hidden">
+      <div id="timeline-draw" class="absolute top-0 left-0 h-1 bg-black w-full origin-left scale-x-0"></div>
+    </div>
+
+    <!-- Contenedores de eventos -->
+    <div id="events-up" class="absolute -top-20 w-full flex justify-between"></div>
+    <div id="events-down" class="absolute top-8 w-full flex justify-between"></div>
+
+  </div>
+</section>
+  
+  </div>
 
 
-  <div id="projects-container" class="row row-cols-1 row-cols-md-3 g-4 px-14 pt-40">
-      <div class="col">
-        <div class="card h-100">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-body-secondary">Last updated 3 mins ago</small>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-body-secondary">Last updated 3 mins ago</small>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-body-secondary">Last updated 3 mins ago</small>
-          </div>
-        </div>
-      </div>
+  <div id="projects-container" class="row row-cols-1 row-cols-md-3 g-4 px-14 pt-40 h-full ">
     </div>
 
   <div id="contact-container"></div>
