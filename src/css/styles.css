@@ -8,3 +8,31 @@
     visibility: visible
   }
 }
+
+/* Animación de la línea */
+#timeline-draw {
+  transition: transform 3s linear;
+  transform-origin: left;
+}
+
+/* Eventos ocultos al inicio */
+.event {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Eventos visibles */
+.event.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#timeline-draw {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 3s linear; /* transición definida en CSS */
+}
+#timeline-draw.animate {
+  transform: scaleX(1);
+}
