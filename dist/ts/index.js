@@ -9,6 +9,29 @@ const experienceContainer = document.getElementById('experience-container');
 const statsContainer = document.getElementById('stats-container');
 const projectsContainer = document.getElementById('projects-container');
 const contactContainer = document.getElementById('contact-container');
+const line = document.getElementById("timeline-draw");
+const eventsUp = document.getElementById("events-up");
+const eventsDown = document.getElementById("events-down");
+let isExperienceVisible = false;
+// Datos de ejemplo
+const studies = [
+    { year: "", title: "" },
+    { year: "2020-2023", title: "FP Superior Desarollo de Videojuegos" },
+    { year: "", title: "" },
+    { year: "", title: "" },
+    { year: "", title: "" },
+    { year: "2024", title: "Curso Javascript from Zero to Expert" },
+    { year: "2025", title: `Bootcamp Desarrollo Fullstack <br> Curso Desarollo en Java` },
+];
+const jobs = [
+    { year: "2018-2019", title: "Esports Coach @ Baskonia" },
+    { year: "2020", title: "Expendedor @ Avia <br> Freelance eSports Coach" },
+    { year: "2021", title: "Freelance eSports Coach" },
+    { year: "2022", title: "Auxiliar @ Dreamfit <br> Gaming Content Leader @ Cracked.club <br> Freelance eSports Coach" },
+    { year: "->", title: "" },
+    { year: "2024", title: "Monitor Polivalente @ Dreamfit" },
+    { year: "->", title: "" },
+];
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM cargado');
     console.log(indexButton, experienceButton, statsButton, projectsButton, contactButton);
@@ -17,36 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
     statsButton.addEventListener('click', showStats);
     projectsButton.addEventListener('click', showProjects);
     contactButton.addEventListener('click', showContact);
-    const line = document.getElementById("timeline-draw");
-    const eventsUp = document.getElementById("events-up");
-    const eventsDown = document.getElementById("events-down");
-    // Crear eventos dinámicamente
-    const createEvent = (container, data, colorClass) => {
-        data.forEach(event => {
-            const div = document.createElement("div");
-            div.className = `event text-center w-1/5 ${colorClass}`;
-            div.innerHTML = `<div class="text-sm font-bold">${event.year}</div><div>${event.title}</div>`;
-            container.appendChild(div);
-        });
-    };
     createEvent(eventsUp, studies, "text-blue-400");
     createEvent(eventsDown, jobs, "text-yellow-400");
-    // Animar línea
-    setTimeout(() => {
-        line.classList.add("animate");
-    }, 100);
-    // Mostrar eventos escalonadamente, sincronizando estudio + trabajo
-    const totalDuration = 3200; // duración total de la línea
-    const steps = studies.length; // número de puntos (asumimos igual para estudios y trabajos)
-    for (let i = 0; i < steps; i++) {
-        const delay = (i / steps) * totalDuration;
-        setTimeout(() => {
-            const upEvent = eventsUp.children[i];
-            const downEvent = eventsDown.children[i];
-            upEvent.classList.add("visible");
-            downEvent.classList.add("visible");
-        }, delay);
-    }
     drawProjects();
 });
 function showIndex() {
@@ -63,6 +58,10 @@ function showExperience() {
     statsContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
     contactContainer.classList.add('hidden');
+    if (!isExperienceVisible) {
+        timelineAnimation();
+        isExperienceVisible = true;
+    }
     console.log('experience');
 }
 function showStats() {
@@ -124,24 +123,32 @@ async function drawProjects() {
         projectContainer?.insertAdjacentHTML('beforeend', html);
     });
 }
-// Datos de ejemplo
-const studies = [
-    { year: "", title: "" },
-    { year: "2020-2023", title: "FP Superior Desarollo de Videojuegos" },
-    { year: "", title: "" },
-    { year: "", title: "" },
-    { year: "", title: "" },
-    { year: "2024", title: "Curso Javascript from Zero to Expert" },
-    { year: "2025", title: `Bootcamp Desarrollo Fullstack <br> Curso Desarollo en Java` },
-];
-const jobs = [
-    { year: "2018-2019", title: "Esports Coach @ Baskonia" },
-    { year: "2020", title: "Expendedor @ Avia <br> Freelance eSports Coach" },
-    { year: "2021", title: "Freelance eSports Coach" },
-    { year: "2022", title: "Auxiliar @ Dreamfit <br> Gaming Content Leader @ Cracked.club <br> Freelance eSports Coach" },
-    { year: "->", title: "" },
-    { year: "2024", title: "Monitor Polivalente @ Dreamfit" },
-    { year: "->", title: "" },
-];
+const createEvent = (container, data, colorClass) => {
+    data.forEach(event => {
+        const div = document.createElement("div");
+        div.className = `event text-center w-1/5 ${colorClass}`;
+        div.innerHTML = `<div class="text-sm font-bold">${event.year}</div><div>${event.title}</div>`;
+        container.appendChild(div);
+    });
+};
+function timelineAnimation() {
+    // Animar línea
+    setTimeout(() => {
+        line.classList.add("animate");
+    }, 100);
+    // Mostrar eventos escalonadamente, sincronizando estudio + trabajo
+    const totalDuration = 3200; // duración total de la línea
+    const steps = studies.length; // número de puntos (asumimos igual para estudios y trabajos)
+    for (let i = 0; i < steps; i++) {
+        const delay = (i / steps) * totalDuration;
+        setTimeout(() => {
+            const upEvent = eventsUp.children[i];
+            const downEvent = eventsDown.children[i];
+            upEvent.classList.add("visible");
+            downEvent.classList.add("visible");
+        }, delay);
+    }
+}
+;
 export {};
 //# sourceMappingURL=index.js.map

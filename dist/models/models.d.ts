@@ -4,4 +4,8 @@ export interface Project {
     description: string;
     img: string;
 }
+export interface EventData {
+    year: string;
+    title: string;
+}
 //# sourceMappingURL=models.d.ts.map
