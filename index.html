@@ -14,7 +14,7 @@
 
   <nav class="navbar fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand text-4xl" href="#">Jdev</a>
+      <a id="nav-logo" class="navbar-brand text-4xl" href="#">Jdev</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -46,8 +46,8 @@
     </div>
   </nav>
 
-  <div id="index-container" class="flex h-screen items-center justify-center ">
-    <div class="card flex h-[32rem] w-[64rem]">
+  <div id="index-container" class="flex h-screen items-center justify-center">
+    <div class="card flex h-[32rem] w-[64rem] fade-in overflow-hidden">
       <div class="row g-0 flex h-full w-full items-center">
 
         <div class="col-md-4 h-full">
@@ -88,7 +88,26 @@
     </div>
   </div>
 
-  <div id="stats-container" class="flex flex-row h-screen items-center justify-center pt-40 mx-52 hidden">
+  <div id="experience-container" class="flex h-full w-full items-center justify-center hidden fade-in overflow-hidden"> 
+
+  <section id="timeline" class="relative w-full py-16">
+    <div class="relative w-11/12 mx-auto">
+
+      <!-- Línea principal -->
+      <div class="relative h-1 rounded-full overflow-hidden">
+        <div id="timeline-draw" class="absolute top-0 left-0 h-1 bg-black w-full origin-left scale-x-0"></div>
+      </div>
+
+      <!-- Contenedores de eventos -->
+      <div id="events-up" class="absolute -top-24 w-full flex justify-between"></div>
+      <div id="events-down" class="absolute top-8 w-full flex justify-between"></div>
+
+    </div>
+  </section>
+
+  </div>
+
+  <div id="stats-container" class="flex flex-row h-screen items-center justify-center my-auto mx-52 hidden fade-in">
     <div class="">
           <img src="./src/img/Jstats.png" class="max-w-96" alt="...">
         </div>
@@ -260,27 +279,7 @@
     </div>
   </div>
 
-  <div id="experience-container" class="flex h-full w-full items-center justify-center hidden"> 
-  
-<section id="timeline" class="relative w-full py-16">
-  <div class="relative w-11/12 mx-auto">
-
-    <!-- Línea principal -->
-    <div class="relative h-1 rounded-full overflow-hidden">
-      <div id="timeline-draw" class="absolute top-0 left-0 h-1 bg-black w-full origin-left scale-x-0"></div>
-    </div>
-
-    <!-- Contenedores de eventos -->
-    <div id="events-up" class="absolute -top-20 w-full flex justify-between"></div>
-    <div id="events-down" class="absolute top-8 w-full flex justify-between"></div>
-
-  </div>
-</section>
-  
-  </div>
-
-
-  <div id="projects-container" class="row row-cols-1 row-cols-md-3 g-4 px-14 pt-40 h-full hidden">
+  <div id="projects-container" class="row row-cols-1 row-cols-md-3 g-4 px-14 pt-40 h-full hidden fade-in">
     </div>
 
   <div id="contact-container"></div>
