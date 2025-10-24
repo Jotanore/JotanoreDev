@@ -1,6 +1,6 @@
 console.log("tres");
 
-import type { Project } from "../models/models.ts";
+import type { Project, EventData } from "../models/models.ts";
 
 const indexButton: HTMLButtonElement = document.getElementById('index-button') as HTMLButtonElement;
 const experienceButton: HTMLButtonElement = document.getElementById('experience-button') as HTMLButtonElement;
@@ -14,6 +14,33 @@ const statsContainer: HTMLDivElement = document.getElementById('stats-container'
 const projectsContainer: HTMLDivElement = document.getElementById('projects-container') as HTMLDivElement;
 const contactContainer: HTMLDivElement = document.getElementById('contact-container') as HTMLDivElement;
 
+const line = document.getElementById("timeline-draw") as HTMLDivElement;
+const eventsUp = document.getElementById("events-up") as HTMLDivElement;
+const eventsDown = document.getElementById("events-down") as HTMLDivElement;
+
+let isExperienceVisible: boolean = false;
+
+// Datos de ejemplo
+const studies: EventData[] = [
+                { year: "", title: "" },
+  { year: "2020-2023", title: "FP Superior Desarollo de Videojuegos" },
+            { year: "", title: "" },
+          { year: "", title: "" },
+              { year: "", title: "" },
+                      { year: "2024", title: "Curso Javascript from Zero to Expert" },
+  { year: "2025", title: `Bootcamp Desarrollo Fullstack <br> Curso Desarollo en Java` },
+
+];
+
+const jobs: EventData[] = [
+  { year: "2018-2019", title: "Esports Coach @ Baskonia" },
+    { year: "2020", title: "Expendedor @ Avia <br> Freelance eSports Coach" },
+  { year: "2021", title: "Freelance eSports Coach" },
+    { year: "2022", title: "Auxiliar @ Dreamfit <br> Gaming Content Leader @ Cracked.club <br> Freelance eSports Coach" },
+      { year: "->", title: "" },
+  { year: "2024", title: "Monitor Polivalente @ Dreamfit" },
+        { year: "->", title: "" },
+];
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,43 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
     projectsButton.addEventListener('click', showProjects);
     contactButton.addEventListener('click', showContact);
 
-    const line = document.getElementById("timeline-draw") as HTMLDivElement;
-    const eventsUp = document.getElementById("events-up") as HTMLDivElement;
-    const eventsDown = document.getElementById("events-down") as HTMLDivElement;
-
-    // Crear eventos dinámicamente
-    const createEvent = (container: HTMLDivElement, data: EventData[], colorClass: string) => {
-        data.forEach(event => {
-        const div = document.createElement("div");
-        div.className = `event text-center w-1/5 ${colorClass}`;
-        div.innerHTML = `<div class="text-sm font-bold">${event.year}</div><div>${event.title}</div>`;
-        container.appendChild(div);
-        });
-    };
-
+    
     createEvent(eventsUp, studies, "text-blue-400");
     createEvent(eventsDown, jobs, "text-yellow-400");
-
-    // Animar línea
-   setTimeout(() => {
-    line.classList.add("animate");
-  }, 100);
-
-  // Mostrar eventos escalonadamente, sincronizando estudio + trabajo
-  const totalDuration = 3200; // duración total de la línea
-  const steps = studies.length; // número de puntos (asumimos igual para estudios y trabajos)
-
-  for (let i = 0; i < steps; i++) {
-    const delay = (i / steps) * totalDuration;
-
-    setTimeout(() => {
-      const upEvent = eventsUp.children[i] as HTMLDivElement;
-      const downEvent = eventsDown.children[i] as HTMLDivElement;
-
-      upEvent.classList.add("visible");
-      downEvent.classList.add("visible");
-    }, delay);
-  }
 
         drawProjects();
     
@@ -89,6 +82,11 @@ function showExperience():void{
     statsContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
     contactContainer.classList.add('hidden');
+
+    if(!isExperienceVisible){
+        timelineAnimation();
+        isExperienceVisible = true;   
+    }
 
     console.log('experience');
 }
@@ -176,32 +174,40 @@ async function drawProjects():Promise<void>{
     })
 }
 
-interface EventData {
-  year: string;
-  title: string;
-}
+const createEvent = (container: HTMLDivElement, data: EventData[], colorClass: string) => {
+    data.forEach(event => {
+    const div = document.createElement("div");
+    div.className = `event text-center w-1/5 ${colorClass}`;
+    div.innerHTML = `<div class="text-sm font-bold">${event.year}</div><div>${event.title}</div>`;
+    container.appendChild(div);
+    });
+};
 
-// Datos de ejemplo
-const studies: EventData[] = [
-                { year: "", title: "" },
-  { year: "2020-2023", title: "FP Superior Desarollo de Videojuegos" },
-            { year: "", title: "" },
-          { year: "", title: "" },
-              { year: "", title: "" },
-                      { year: "2024", title: "Curso Javascript from Zero to Expert" },
-  { year: "2025", title: `Bootcamp Desarrollo Fullstack <br> Curso Desarollo en Java` },
+function timelineAnimation(){
+        // Animar línea
+    setTimeout(() => {
+        line.classList.add("animate");
+    }, 100);
 
-];
+    // Mostrar eventos escalonadamente, sincronizando estudio + trabajo
+    const totalDuration = 3200; // duración total de la línea
+    const steps = studies.length; // número de puntos (asumimos igual para estudios y trabajos)
 
-const jobs: EventData[] = [
-  { year: "2018-2019", title: "Esports Coach @ Baskonia" },
-    { year: "2020", title: "Expendedor @ Avia <br> Freelance eSports Coach" },
-  { year: "2021", title: "Freelance eSports Coach" },
-    { year: "2022", title: "Auxiliar @ Dreamfit <br> Gaming Content Leader @ Cracked.club <br> Freelance eSports Coach" },
-      { year: "->", title: "" },
-  { year: "2024", title: "Monitor Polivalente @ Dreamfit" },
-        { year: "->", title: "" },
-];
+    for (let i = 0; i < steps; i++) {
+        const delay = (i / steps) * totalDuration;
+
+        setTimeout(() => {
+            const upEvent = eventsUp.children[i] as HTMLDivElement;
+            const downEvent = eventsDown.children[i] as HTMLDivElement;
+
+            upEvent.classList.add("visible");
+            downEvent.classList.add("visible");
+        }, delay);
+    }
+
+};
+
+
 
 
 
