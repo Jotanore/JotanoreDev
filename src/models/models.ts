@@ -5,3 +5,8 @@ export interface Project {
     img: string;
     
 }
+
+export interface EventData {
+  year: string;
+  title: string;
+}
