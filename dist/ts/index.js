@@ -1,4 +1,5 @@
 console.log("tres");
+const logo = document.getElementById('nav-logo');
 const indexButton = document.getElementById('index-button');
 const experienceButton = document.getElementById('experience-button');
 const statsButton = document.getElementById('stats-button');
@@ -35,6 +36,7 @@ const jobs = [
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM cargado');
     console.log(indexButton, experienceButton, statsButton, projectsButton, contactButton);
+    logo.addEventListener('click', showIndex);
     indexButton.addEventListener('click', showIndex);
     experienceButton.addEventListener('click', showExperience);
     statsButton.addEventListener('click', showStats);
