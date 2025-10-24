@@ -2,6 +2,7 @@ console.log("tres");
 
 import type { Project, EventData } from "../models/models.ts";
 
+const logo:HTMLAnchorElement = document.getElementById('nav-logo') as HTMLAnchorElement;
 const indexButton: HTMLButtonElement = document.getElementById('index-button') as HTMLButtonElement;
 const experienceButton: HTMLButtonElement = document.getElementById('experience-button') as HTMLButtonElement;
 const statsButton: HTMLButtonElement = document.getElementById('stats-button') as HTMLButtonElement;
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM cargado');
     console.log(indexButton, experienceButton, statsButton, projectsButton, contactButton);
 
+    logo.addEventListener('click', showIndex);
     indexButton.addEventListener('click', showIndex);
     experienceButton.addEventListener('click', showExperience);
     statsButton.addEventListener('click', showStats);
