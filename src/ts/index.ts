@@ -18,6 +18,8 @@ const contactContainer: HTMLDivElement = document.getElementById('contact-contai
 const line = document.getElementById("timeline-draw") as HTMLDivElement;
 const eventsUp = document.getElementById("events-up") as HTMLDivElement;
 const eventsDown = document.getElementById("events-down") as HTMLDivElement;
+const eventsUpVertical = document.getElementById("events-up-vertical") as HTMLDivElement;
+const eventsDownVertical = document.getElementById("events-down-vertical") as HTMLDivElement;
 
 let isExperienceVisible: boolean = false;
 
@@ -59,6 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     createEvent(eventsUp, studies, "text-blue-400");
     createEvent(eventsDown, jobs, "text-yellow-400");
+    createEventVertical(eventsUpVertical, studies, "text-blue-400");
+    createEventVertical(eventsDownVertical, jobs, "text-yellow-400");
 
         drawProjects();
     
@@ -87,6 +91,7 @@ function showExperience():void{
 
     if(!isExperienceVisible){
         timelineAnimation();
+        timelineAnimationVertical();
         isExperienceVisible = true;   
     }
 
@@ -208,6 +213,44 @@ function timelineAnimation(){
     }
 
 };
+
+const createEventVertical = (container: HTMLDivElement, data: EventData[], colorClass: string) => {
+    data.forEach(event => {
+        const div = document.createElement("div");
+        div.className = `event mb-12 w-44 text-center ${colorClass}`;
+        div.innerHTML = `
+            <div class="text-sm font-bold">${event.year}</div>
+            <div>${event.title}</div>
+        `;
+        container.appendChild(div);
+    });
+};
+
+function timelineAnimationVertical() {
+    const lineVertical = document.getElementById("timeline-vertical-draw") as HTMLDivElement;
+    
+
+    // animamos la línea
+    setTimeout(() => {
+        lineVertical.classList.add("animate");
+    }, 100);
+
+    const steps = studies.length;
+    const totalDuration = 3200;
+
+    for (let i = 0; i < steps; i++) {
+        const delay = (i / steps) * totalDuration;
+
+        setTimeout(() => {
+            const upEvent = eventsUpVertical.children[i] as HTMLDivElement;
+            const downEvent = eventsDownVertical.children[i] as HTMLDivElement;
+
+            upEvent.classList.add("visible");
+            downEvent.classList.add("visible");
+        }, delay);
+    }
+}
+
 
 
 

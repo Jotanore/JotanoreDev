@@ -13,6 +13,8 @@ const contactContainer = document.getElementById('contact-container');
 const line = document.getElementById("timeline-draw");
 const eventsUp = document.getElementById("events-up");
 const eventsDown = document.getElementById("events-down");
+const eventsUpVertical = document.getElementById("events-up-vertical");
+const eventsDownVertical = document.getElementById("events-down-vertical");
 let isExperienceVisible = false;
 // Datos de ejemplo
 const studies = [
@@ -44,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
     contactButton.addEventListener('click', showContact);
     createEvent(eventsUp, studies, "text-blue-400");
     createEvent(eventsDown, jobs, "text-yellow-400");
+    createEventVertical(eventsUpVertical, studies, "text-blue-400");
+    createEventVertical(eventsDownVertical, jobs, "text-yellow-400");
     drawProjects();
 });
 function showIndex() {
@@ -62,6 +66,7 @@ function showExperience() {
     contactContainer.classList.add('hidden');
     if (!isExperienceVisible) {
         timelineAnimation();
+        timelineAnimationVertical();
         isExperienceVisible = true;
     }
     console.log('experience');
@@ -152,5 +157,34 @@ function timelineAnimation() {
     }
 }
 ;
+const createEventVertical = (container, data, colorClass) => {
+    data.forEach(event => {
+        const div = document.createElement("div");
+        div.className = `event mb-12 w-44 text-center ${colorClass}`;
+        div.innerHTML = `
+            <div class="text-sm font-bold">${event.year}</div>
+            <div>${event.title}</div>
+        `;
+        container.appendChild(div);
+    });
+};
+function timelineAnimationVertical() {
+    const lineVertical = document.getElementById("timeline-vertical-draw");
+    // animamos la línea
+    setTimeout(() => {
+        lineVertical.classList.add("animate");
+    }, 100);
+    const steps = studies.length;
+    const totalDuration = 3200;
+    for (let i = 0; i < steps; i++) {
+        const delay = (i / steps) * totalDuration;
+        setTimeout(() => {
+            const upEvent = eventsUpVertical.children[i];
+            const downEvent = eventsDownVertical.children[i];
+            upEvent.classList.add("visible");
+            downEvent.classList.add("visible");
+        }, delay);
+    }
+}
 export {};
 //# sourceMappingURL=index.js.map
