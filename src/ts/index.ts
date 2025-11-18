@@ -13,7 +13,6 @@ const indexContainer: HTMLDivElement = document.getElementById('index-container'
 const experienceContainer: HTMLDivElement = document.getElementById('experience-container') as HTMLDivElement;
 const statsContainer: HTMLDivElement = document.getElementById('stats-container') as HTMLDivElement;
 const projectsContainer: HTMLDivElement = document.getElementById('projects-container') as HTMLDivElement;
-const contactContainer: HTMLDivElement = document.getElementById('contact-container') as HTMLDivElement;
 
 const line = document.getElementById("timeline-draw") as HTMLDivElement;
 const eventsUp = document.getElementById("events-up") as HTMLDivElement;
@@ -56,26 +55,25 @@ document.addEventListener('DOMContentLoaded', () => {
     experienceButton.addEventListener('click', showExperience);
     statsButton.addEventListener('click', showStats);
     projectsButton.addEventListener('click', showProjects);
-    contactButton.addEventListener('click', showContact);
 
     
-    createEvent(eventsUp, studies, "text-blue-400");
-    createEvent(eventsDown, jobs, "text-yellow-400");
-    createEventVertical(eventsUpVertical, studies, "text-blue-400");
-    createEventVertical(eventsDownVertical, jobs, "text-yellow-400");
+    createEvent(eventsUp, studies, "text-blue-400", "flex flex-col-reverse");
+    createEvent(eventsDown, jobs, "text-yellow-400", "flex flex-col");
+    createEventVertical(eventsUpVertical, studies, "text-blue-400", "text-right");
+    createEventVertical(eventsDownVertical, jobs, "text-yellow-400", "text-left");
 
-        drawProjects();
+    drawProjects();
+    setDriverLicenseTime();
+    setVisibleStats()
     
 });
 
 function showIndex():void{
 
     indexContainer.classList.remove('hidden');
-    
     experienceContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
-    contactContainer.classList.add('hidden');
 
     console.log('index');
 }
@@ -87,7 +85,6 @@ function showExperience():void{
     indexContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
-    contactContainer.classList.add('hidden');
 
     if(!isExperienceVisible){
         timelineAnimation();
@@ -105,7 +102,6 @@ function showStats():void{
     indexContainer.classList.add('hidden');
     experienceContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
-    contactContainer.classList.add('hidden');
 
     console.log('experience');
 }
@@ -117,22 +113,10 @@ function showProjects():void{
     indexContainer.classList.add('hidden');
     experienceContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
-    contactContainer.classList.add('hidden');
 
     console.log('projects');
 }
 
-function showContact():void{
-
-    contactContainer.classList.remove('hidden');
-
-    indexContainer.classList.add('hidden');
-    experienceContainer.classList.add('hidden');
-    statsContainer.classList.add('hidden');
-    projectsContainer.classList.add('hidden');
-
-    console.log('contact');
-}
 
 async function getProjects():Promise<Project[]>{
 
@@ -153,7 +137,6 @@ async function getProjects():Promise<Project[]>{
 async function drawProjects():Promise<void>{
 
     const projects: Project[] = await getProjects();
-    console.log("saddasdf" + projects);
 
     projects.forEach((project: Project) => {
 
@@ -161,7 +144,7 @@ async function drawProjects():Promise<void>{
 
         const html: string = `
             <div class="col max-w-72">
-                <div class="card">
+                <div class="card h-full">
                 <img src="${project.img}" class="card-img-top max-h-60" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${project.name}</h5>
@@ -181,16 +164,16 @@ async function drawProjects():Promise<void>{
     })
 }
 
-const createEvent = (container: HTMLDivElement, data: EventData[], colorClass: string) => {
+const createEvent = (container: HTMLDivElement, data: EventData[], colorClass: string, textAlignClass: string) => {
     data.forEach(event => {
     const div = document.createElement("div");
-    div.className = `event text-center w-1/5 ${colorClass}`;
+    div.className = `event text-center w-1/5 ${colorClass} ${textAlignClass}`;
     div.innerHTML = `<div class="text-sm font-bold">${event.year}</div><div>${event.title}</div>`;
     container.appendChild(div);
     });
 };
 
-function timelineAnimation(){
+function timelineAnimation():void{
         // Animar línea
     setTimeout(() => {
         line.classList.add("animate");
@@ -214,10 +197,10 @@ function timelineAnimation(){
 
 };
 
-const createEventVertical = (container: HTMLDivElement, data: EventData[], colorClass: string) => {
+const createEventVertical = (container: HTMLDivElement, data: EventData[], colorClass: string, textAlignClass: string):void => {
     data.forEach(event => {
         const div = document.createElement("div");
-        div.className = `event mb-12 w-44 text-center ${colorClass}`;
+        div.className = `event mb-12 w-44 ${colorClass} ${textAlignClass}`;
         div.innerHTML = `
             <div class="text-sm font-bold">${event.year}</div>
             <div>${event.title}</div>
@@ -226,7 +209,7 @@ const createEventVertical = (container: HTMLDivElement, data: EventData[], color
     });
 };
 
-function timelineAnimationVertical() {
+function timelineAnimationVertical():void {
     const lineVertical = document.getElementById("timeline-vertical-draw") as HTMLDivElement;
     
 
@@ -251,6 +234,37 @@ function timelineAnimationVertical() {
     }
 }
 
+function setDriverLicenseTime():void{
+
+    const MotoDriverLicenseTime = document.getElementById('moto-driver-license-time') as HTMLDivElement;
+    const CarDriverLicenseTime = document.getElementById('car-driver-license-time') as HTMLDivElement;
+
+    const carLicenseMonth: number = 7;
+    const carLicenseYear: number = 2017;
+
+    const motoLicenseMonth: number = 9;
+    const motoLicenseYear: number = 2023;
+
+    const todayMonth: number = new Date().getMonth();
+    const todayYear: number = new Date().getFullYear();
+
+    const carTime: number = (todayMonth - carLicenseMonth) >= 0 ? (todayYear - carLicenseYear) : (todayYear - carLicenseYear) - 1; 
+    const motoTime: number = (todayMonth - motoLicenseMonth) >= 0 ? (todayYear - motoLicenseYear) : (todayYear - motoLicenseYear) - 1; 
+
+    MotoDriverLicenseTime.innerHTML = `${motoTime} years`;
+    CarDriverLicenseTime.innerHTML = `${carTime} years`;
+
+    
+}
+
+function setVisibleStats():void{
+    
+   const collapses = document.querySelectorAll<HTMLDivElement>('.vis');
+
+    collapses.forEach(collapse => {
+        collapse.classList.add('visible');
+});
+}
 
 
 
