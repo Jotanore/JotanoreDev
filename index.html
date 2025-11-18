@@ -37,9 +37,6 @@
             <li id ="projects-button" class="nav-item">
               <a class="nav-link" href="#" data-bs-dismiss="offcanvas">Proyectos</a>
             </li>
-            <li id="contact-button" class="nav-item">
-              <a class="nav-link" href="#" data-bs-dismiss="offcanvas">Contacto</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -91,7 +88,7 @@
       <div class="relative mx-auto my-auto h-5/6 flex flex-col items-center">
 
         <!-- Línea vertical -->
-        <div class="relative h-full w-1 bg-gray-200 rounded-full overflow-hidden">
+        <div class="relative h-full w-1 bg-gray-200 rounded-full overflow-hidden ">
           <div id="timeline-vertical-draw" class="absolute top-0 left-0 h-full bg-black w-1 origin-top scale-y-0"></div>
         </div>
 
@@ -111,46 +108,43 @@
         <div id="timeline-draw" class="absolute top-0 left-0 h-1 bg-black w-full origin-left scale-x-0"></div>
       </div>
 
-      <div id="events-up" class="absolute -top-24 w-full flex justify-between"></div>
-      <div id="events-down" class="absolute top-8 w-full flex justify-between"></div>
+      <div id="events-up" class="absolute bottom-4 w-full flex  justify-between text-end"></div>
+      <div id="events-down" class="absolute top-4 w-full flex justify-between"></div>
 
     </div>
   </section>
 
   </div>
 
-  <div id="stats-container" class="flex flex-row h-screen items-center justify-center my-auto mx-32 fade-in">
-    <div class="">
-          <img src="./src/img/Jstats.png" class="max-w-96" alt="...">
-        </div>
-    <div class="accordion ml-24 flex-1" id="accordionExample">
+  <div id="stats-container" class="flex flex-row h-screen items-center justify-center my-auto mx-auto w-[90%] md:w-[70%] fade-in">
+    <div class="accordion flex-1" id="accordionExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             Programming Languages
           </button>
         </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+        <div id="collapseOne" class="accordion-collapse collapse vis show" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">JavaScript</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 75%;"></div>
+                <div class="bg-blue-500 h-2 rounded-full" ></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Typescript</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 20%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Java</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 40%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">C# (Unity)</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 35%;"></div>
@@ -165,33 +159,33 @@
             Front-End Skills
           </button>
         </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div id="collapseTwo" class="accordion-collapse collapse vis" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">React</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 15%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">HTML</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 80%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">CSS</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 70%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Tailwind</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 70%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Bootstrap</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 30%;"></div>
@@ -206,33 +200,33 @@
             Back-End Skills
           </button>
         </h2>
-        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div id="collapseThree" class="accordion-collapse collapse vis" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Node.js</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 40%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Express.js</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 40%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Spring Boot</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 40%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">MongoDB</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 40%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">SQLite</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 60%;"></div>
@@ -247,39 +241,39 @@
             Soft Skills
           </button>
         </h2>
-        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div id="collapseFour" class="accordion-collapse collapse vis" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Initiative</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 80%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Stress management</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 90%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Analytical Thinking</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 90%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Sharing Knowledge</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 90%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Communication</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 85%;"></div>
               </div>
             </div>
-            <div class="my-2 flex items-center gap-2">
+            <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Problem Solving</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 100%;"></div>
@@ -288,13 +282,32 @@
           </div>
         </div>
       </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+            Extras
+          </button>
+        </h2>
+        <div id="collapseFive" class="accordion-collapse collapse vis" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="my-2 flex items-center gap-4">
+              <span class="text-sm text-gray-300 w-20">Bike Driving License (A2)</span>
+              <div id="moto-driver-license-time" class="">24 Years</div>
+            </div>
+            <div class="my-2 flex items-center gap-4">
+              <span class="text-sm text-gray-300 w-20">Car Driving License (B)</span>
+              <div id="car-driver-license-time" class="">6 Years</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="projects-container" class="row row-cols-1 row-cols-md-3 g-4 pt-40 fade-in justify-center w-full max-w-7xl mx-auto px-4 overflow-y-auto overflow-x-hidden" style="height: 100vh;">
-    </div>
-
-  <div id="contact-container"></div>
+  <div id="projects-container"
+    class="row row-cols-1 row-cols-md-3 g-4 pt-40 fade-in justify-center w-full max-w-7xl mx-auto px-4 overflow-y-auto overflow-x-hidden items-stretch"
+    style="height: 100vh;">
+</div>
 
 </body>
 </html>

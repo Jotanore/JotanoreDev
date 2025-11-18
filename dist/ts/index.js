@@ -9,7 +9,6 @@ const indexContainer = document.getElementById('index-container');
 const experienceContainer = document.getElementById('experience-container');
 const statsContainer = document.getElementById('stats-container');
 const projectsContainer = document.getElementById('projects-container');
-const contactContainer = document.getElementById('contact-container');
 const line = document.getElementById("timeline-draw");
 const eventsUp = document.getElementById("events-up");
 const eventsDown = document.getElementById("events-down");
@@ -43,19 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
     experienceButton.addEventListener('click', showExperience);
     statsButton.addEventListener('click', showStats);
     projectsButton.addEventListener('click', showProjects);
-    contactButton.addEventListener('click', showContact);
-    createEvent(eventsUp, studies, "text-blue-400");
-    createEvent(eventsDown, jobs, "text-yellow-400");
-    createEventVertical(eventsUpVertical, studies, "text-blue-400");
-    createEventVertical(eventsDownVertical, jobs, "text-yellow-400");
+    createEvent(eventsUp, studies, "text-blue-400", "flex flex-col-reverse");
+    createEvent(eventsDown, jobs, "text-yellow-400", "flex flex-col");
+    createEventVertical(eventsUpVertical, studies, "text-blue-400", "text-right");
+    createEventVertical(eventsDownVertical, jobs, "text-yellow-400", "text-left");
     drawProjects();
+    setDriverLicenseTime();
+    setVisibleStats();
 });
 function showIndex() {
     indexContainer.classList.remove('hidden');
     experienceContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
-    contactContainer.classList.add('hidden');
     console.log('index');
 }
 function showExperience() {
@@ -63,7 +62,6 @@ function showExperience() {
     indexContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
-    contactContainer.classList.add('hidden');
     if (!isExperienceVisible) {
         timelineAnimation();
         timelineAnimationVertical();
@@ -76,7 +74,6 @@ function showStats() {
     indexContainer.classList.add('hidden');
     experienceContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
-    contactContainer.classList.add('hidden');
     console.log('experience');
 }
 function showProjects() {
@@ -84,16 +81,7 @@ function showProjects() {
     indexContainer.classList.add('hidden');
     experienceContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
-    contactContainer.classList.add('hidden');
     console.log('projects');
-}
-function showContact() {
-    contactContainer.classList.remove('hidden');
-    indexContainer.classList.add('hidden');
-    experienceContainer.classList.add('hidden');
-    statsContainer.classList.add('hidden');
-    projectsContainer.classList.add('hidden');
-    console.log('contact');
 }
 async function getProjects() {
     try {
@@ -110,12 +98,11 @@ async function getProjects() {
 }
 async function drawProjects() {
     const projects = await getProjects();
-    console.log("saddasdf" + projects);
     projects.forEach((project) => {
         const projectContainer = document.getElementById('projects-container');
         const html = `
             <div class="col max-w-72">
-                <div class="card">
+                <div class="card h-full">
                 <img src="${project.img}" class="card-img-top max-h-60" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${project.name}</h5>
@@ -130,10 +117,10 @@ async function drawProjects() {
         projectContainer?.insertAdjacentHTML('beforeend', html);
     });
 }
-const createEvent = (container, data, colorClass) => {
+const createEvent = (container, data, colorClass, textAlignClass) => {
     data.forEach(event => {
         const div = document.createElement("div");
-        div.className = `event text-center w-1/5 ${colorClass}`;
+        div.className = `event text-center w-1/5 ${colorClass} ${textAlignClass}`;
         div.innerHTML = `<div class="text-sm font-bold">${event.year}</div><div>${event.title}</div>`;
         container.appendChild(div);
     });
@@ -157,10 +144,10 @@ function timelineAnimation() {
     }
 }
 ;
-const createEventVertical = (container, data, colorClass) => {
+const createEventVertical = (container, data, colorClass, textAlignClass) => {
     data.forEach(event => {
         const div = document.createElement("div");
-        div.className = `event mb-12 w-44 text-center ${colorClass}`;
+        div.className = `event mb-12 w-44 ${colorClass} ${textAlignClass}`;
         div.innerHTML = `
             <div class="text-sm font-bold">${event.year}</div>
             <div>${event.title}</div>
@@ -185,6 +172,26 @@ function timelineAnimationVertical() {
             downEvent.classList.add("visible");
         }, delay);
     }
+}
+function setDriverLicenseTime() {
+    const MotoDriverLicenseTime = document.getElementById('moto-driver-license-time');
+    const CarDriverLicenseTime = document.getElementById('car-driver-license-time');
+    const carLicenseMonth = 7;
+    const carLicenseYear = 2017;
+    const motoLicenseMonth = 9;
+    const motoLicenseYear = 2023;
+    const todayMonth = new Date().getMonth();
+    const todayYear = new Date().getFullYear();
+    const carTime = (todayMonth - carLicenseMonth) >= 0 ? (todayYear - carLicenseYear) : (todayYear - carLicenseYear) - 1;
+    const motoTime = (todayMonth - motoLicenseMonth) >= 0 ? (todayYear - motoLicenseYear) : (todayYear - motoLicenseYear) - 1;
+    MotoDriverLicenseTime.innerHTML = `${motoTime} years`;
+    CarDriverLicenseTime.innerHTML = `${carTime} years`;
+}
+function setVisibleStats() {
+    const collapses = document.querySelectorAll('.vis');
+    collapses.forEach(collapse => {
+        collapse.classList.add('visible');
+    });
 }
 export {};
 //# sourceMappingURL=index.js.map
