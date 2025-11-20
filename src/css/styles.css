@@ -7,11 +7,29 @@
   .collapse {
     visibility: visible
   }
+
+  #name, #job, #description{
+    text-align: left !important;
+  }
+
+  #contact{
+    margin-left: 1rem !important;
+    margin-right: 0 !important;
+  }
+
+  #socials{
+    justify-content: left !important;
+  }
 }
 
 *{
   box-sizing: border-box;
 }
+
+#contact{
+    list-style-position: inside !important; 
+    padding-left: 0;
+  }
 
 html, body {
   overflow: hidden;
