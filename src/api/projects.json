@@ -1,25 +1,28 @@
 [    
     {
         "name": "Webv1.0",
-        "link": "https://github.com/Jotanore/Webv1.0",
+        "link": "https://jotanoreweb.netlify.app/",
+        "github": "https://github.com/Jotanore/Webv1.0",
         "description": "Version 1 de mi landing web, tecnologías usadas: HTML, CSS, y JS.",
-        "img" : "./src/img/4d0.png"
+        "img" : "https://app.netlify.com/.netlify/images?url=https://d33wubrfki0l68.cloudfront.net/678fbfb8fb101a0008aae79e/screenshot_2025-01-21-15-40-01-0000.webp&fit=cover&h=500&q=40&w=800"
     },
     {
         "name": "Quantum Dice",
-        "link": "https://github.com/Jotanore/QuantumDice",
+        "link": "https://quantumdice.netlify.app/",
+        "github": "https://github.com/Jotanore/QuantumDice",
         "description": "Tira el dado, cada vez que pulsas el boton se cambia la imagen, hasta que lo descubres no sabes que numero es. Tecnologías usadas: HTML, CSS, y JS.",
-        "img" : "./src/img/4d0.png"
+        "img" : "https://app.netlify.com/.netlify/images?url=https://d33wubrfki0l68.cloudfront.net/67969a4531fa580008a1007a/screenshot_2025-01-26-20-26-13-0000.webp&fit=cover&h=500&q=40&w=800"
     },{
         "name": "KartHub Front-End",
-        "link": "https://github.com/Jotanore/PFBNeoland",
+        "link": "https://karthubsite.netlify.app/",
+        "github": "https://github.com/Jotanore/PFBNeoland",
         "description": "Parte Front del proyecto KartHub, tecnologías usadas: HTML, Tailwind, y JS.",
-        "img" : "./src/img/4d0.png"
+        "img" : "https://app.netlify.com/.netlify/images?url=https://d33wubrfki0l68.cloudfront.net/67cb18bd57e03a0008c5107d/screenshot_2025-03-07-16-03-46-0000.webp&fit=cover&h=500&q=40&w=800"
     },
     {
         "name": "KartHub Back-End",
-        "link": "https://github.com/Jotanore/PFBServerNeoland",
+        "github": "https://github.com/Jotanore/PFBServerNeoland",
         "description": "Parte Back del proyecto KartHub, tecnologías usadas: Node, Express, MongoDB, y JS.",
-        "img" : "./src/img/4d0.png"
+        "img" : "https://app.netlify.com/.netlify/images?url=https://d33wubrfki0l68.cloudfront.net/67cb18bd57e03a0008c5107d/screenshot_2025-03-07-16-03-46-0000.webp&fit=cover&h=500&q=40&w=800"
     }        
 ]
