@@ -1,4 +1,3 @@
-console.log("tres");
 const logo = document.getElementById('nav-logo');
 const indexButton = document.getElementById('index-button');
 const experienceButton = document.getElementById('experience-button');
@@ -16,7 +15,6 @@ const eventsDown = document.getElementById("events-down");
 const eventsUpVertical = document.getElementById("events-up-vertical");
 const eventsDownVertical = document.getElementById("events-down-vertical");
 let isExperienceVisible = false;
-// Datos de ejemplo
 const studies = [
     { year: "", title: "" },
     { year: "2020-2023", title: "FP Superior Desarollo de Videojuegos" },
@@ -38,20 +36,64 @@ const jobs = [
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM cargado');
     console.log(indexButton, experienceButton, statsButton, projectsButton, contactButton);
+    document.getElementById("btn-es")?.addEventListener('click', () => languageManager('es'));
+    document.getElementById("btn-en")?.addEventListener('click', () => languageManager('en'));
     logo.addEventListener('click', showIndex);
     indexButton.addEventListener('click', showIndex);
     experienceButton.addEventListener('click', showExperience);
     statsButton.addEventListener('click', showStats);
     projectsButton.addEventListener('click', showProjects);
-    createEvent(eventsUp, studies, "text-blue-400", "flex flex-col-reverse");
-    createEvent(eventsDown, jobs, "text-yellow-400", "flex flex-col");
-    createEventVertical(eventsUpVertical, studies, "text-blue-400", "text-right");
-    createEventVertical(eventsDownVertical, jobs, "text-yellow-400", "text-left");
+    createEvent(eventsUp, studies, "text-stone-600", "flex flex-col-reverse");
+    createEvent(eventsDown, jobs, "text-yellow-500", "flex flex-col");
+    createEventVertical(eventsUpVertical, studies, "text-stone-600", "text-right");
+    createEventVertical(eventsDownVertical, jobs, "text-yellow-500", "text-left");
     drawProjects();
     setDriverLicenseTime();
     setVisibleStats();
 });
+async function getTexts() {
+    try {
+        const response = await fetch('./src/api/texts.json');
+        if (!response.ok)
+            throw new Error('Error getting texts');
+        const projects = await response.json();
+        console.log(projects);
+        return projects;
+    }
+    catch (error) {
+        console.log(error);
+        return [];
+    }
+}
+async function languageManager(lang) {
+    if (lang === 'es') {
+        document.getElementById('btn-es')?.classList.add('btn-dark');
+        document.getElementById('btn-en')?.classList.add('btn-outline-dark');
+        document.getElementById('btn-es')?.classList.remove('btn-outline-dark');
+        document.getElementById('btn-en')?.classList.remove('btn-dark');
+    }
+    else {
+        document.getElementById('btn-es')?.classList.remove('btn-dark');
+        document.getElementById('btn-en')?.classList.remove('btn-outline-dark');
+        document.getElementById('btn-en')?.classList.add('btn-dark');
+        document.getElementById('btn-es')?.classList.add('btn-outline-dark');
+    }
+    const [texts] = await getTexts();
+    //NAV
+    //MENU
+    //INDEX
+    const job = document.getElementById('job') ? document.getElementById('job') : null;
+    const description = document.getElementById('description') ? document.getElementById('description') : null;
+    if (job)
+        job.textContent = texts[lang].index.job;
+    if (description)
+        description.textContent = texts[lang].index.description;
+    //EXPERIENCE
+    //STATS
+    //PROJECTS
+}
 function showIndex() {
+    titleManager('Jotadev');
     indexContainer.classList.remove('hidden');
     experienceContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
@@ -60,6 +102,7 @@ function showIndex() {
     console.log('index');
 }
 function showExperience() {
+    titleManager('Experience');
     experienceContainer.classList.remove('hidden');
     indexContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
@@ -73,6 +116,7 @@ function showExperience() {
     console.log('experience');
 }
 function showStats() {
+    titleManager('Skills');
     statsContainer.classList.remove('hidden');
     indexContainer.classList.add('hidden');
     experienceContainer.classList.add('hidden');
@@ -81,6 +125,7 @@ function showStats() {
     console.log('experience');
 }
 function showProjects() {
+    titleManager('Projects');
     projectsContainer.classList.remove('hidden');
     fadedContainer.classList.remove('hidden');
     indexContainer.classList.add('hidden');
@@ -198,6 +243,9 @@ function setVisibleStats() {
     collapses.forEach(collapse => {
         collapse.classList.add('visible');
     });
+}
+function titleManager(name) {
+    logo.innerHTML = name;
 }
 export {};
 //# sourceMappingURL=index.js.map
