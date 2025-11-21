@@ -1,0 +1,53 @@
+[
+    {
+        "es":{
+            "nav":{
+                "navLogo":"Jota",
+                "index":"Inicio",
+                "experience":"Experiencia",
+                "skills":"Estadisticas",
+                "projects":"Proyectos"
+            },
+            "menu":{
+                "index":"Inicio",
+                "experience":"Experiencia",
+                "skills":"Habilidades",
+                "projects":"Proyectos"
+            },
+            "index":{
+                "job":"Desarrollador web y Unity",
+                "description": "Desarrollador web y de videojuegos con pasion en torno al gaming y los deportes de motor. Orientado a la resolución de problemas, de aprendizaje rápido y de jugador en equipo."
+            },
+            "experience":{
+                "title":"Experiencia profesional",
+                "subtitle":"Estudios y trabajos",
+                "subtitle2":"Estudios",
+                "subtitle3":"Trabajos"
+            },
+            "stats":{
+                "languajes":"Lenguajes de programación",
+                "frontend":"Habilidades Front-end",
+                "back":"Habilidades Back-end",
+                "soft":"Habilidades Blandas",
+
+                "initiative":"Iniciativa",
+                "stress":"Gestión de estrés",
+                "analitycal":"Pensamiento análitico",
+                "knowledge":"Compartición de conocimientos",
+                "communication":"Comunicación",
+                "problem":"Resolución de problemas"
+            },
+            "projects":{
+                "title":"Proyectos",
+                "subtitle":"Proyectos"
+            }
+        },
+
+        "en":{
+            "index":{
+                "job":"Web and Unity developer",
+                "description": "Junior web developer and game developer with a passion for gaming and motorsports. Problem solver, fast learner and team player."
+            }
+        }
+    }
+]
