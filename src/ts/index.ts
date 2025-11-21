@@ -1,5 +1,3 @@
-console.log("tres");
-
 import type { Project, EventData } from "../models/models.ts";
 
 const logo:HTMLAnchorElement = document.getElementById('nav-logo') as HTMLAnchorElement;
@@ -23,26 +21,25 @@ const eventsDownVertical = document.getElementById("events-down-vertical") as HT
 
 let isExperienceVisible: boolean = false;
 
-// Datos de ejemplo
 const studies: EventData[] = [
-                { year: "", title: "" },
-  { year: "2020-2023", title: "FP Superior Desarollo de Videojuegos" },
-            { year: "", title: "" },
-          { year: "", title: "" },
-              { year: "", title: "" },
-                      { year: "2024", title: "Curso Javascript from Zero to Expert" },
-  { year: "2025", title: `Bootcamp Desarrollo Fullstack <br> Curso Desarollo en Java` },
+    { year: "", title: "" },
+    { year: "2020-2023", title: "FP Superior Desarollo de Videojuegos" },
+    { year: "", title: "" },
+    { year: "", title: "" },
+    { year: "", title: "" },
+    { year: "2024", title: "Curso Javascript from Zero to Expert" },
+    { year: "2025", title: `Bootcamp Desarrollo Fullstack <br> Curso Desarollo en Java` },
 
 ];
 
 const jobs: EventData[] = [
-  { year: "2018-2019", title: "Esports Coach @ Baskonia" },
+    { year: "2018-2019", title: "Esports Coach @ Baskonia" },
     { year: "2020", title: "Expendedor @ Avia <br> Freelance eSports Coach" },
-  { year: "2021", title: "Freelance eSports Coach" },
+    { year: "2021", title: "Freelance eSports Coach" },
     { year: "2022", title: "Auxiliar @ Dreamfit <br> Gaming Content Leader @ Cracked.club <br> Freelance eSports Coach" },
-      { year: "►", title: "" },
-  { year: "2024", title: "Monitor Polivalente @ Dreamfit" },
-        { year: "►", title: "" },
+    { year: "►", title: "" },
+    { year: "2024", title: "Monitor Polivalente @ Dreamfit" },
+    { year: "►", title: "" },
 ];
 
 
@@ -51,6 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM cargado');
     console.log(indexButton, experienceButton, statsButton, projectsButton, contactButton);
 
+    document.getElementById("btn-es")?.addEventListener('click', () => languageManager('es'));
+    document.getElementById("btn-en")?.addEventListener('click', () => languageManager('en'));
+    
     logo.addEventListener('click', showIndex);
     indexButton.addEventListener('click', showIndex);
     experienceButton.addEventListener('click', showExperience);
@@ -58,16 +58,65 @@ document.addEventListener('DOMContentLoaded', () => {
     projectsButton.addEventListener('click', showProjects);
 
     
-    createEvent(eventsUp, studies, "text-blue-400", "flex flex-col-reverse");
-    createEvent(eventsDown, jobs, "text-yellow-400", "flex flex-col");
-    createEventVertical(eventsUpVertical, studies, "text-blue-400", "text-right");
-    createEventVertical(eventsDownVertical, jobs, "text-yellow-400", "text-left");
+    createEvent(eventsUp, studies, "text-stone-600", "flex flex-col-reverse");
+    createEvent(eventsDown, jobs, "text-yellow-500", "flex flex-col");
+    createEventVertical(eventsUpVertical, studies, "text-stone-600", "text-right");
+    createEventVertical(eventsDownVertical, jobs, "text-yellow-500", "text-left");
 
     drawProjects();
     setDriverLicenseTime();
     setVisibleStats()
     
 });
+
+async function getTexts():Promise<any>{
+
+    try{
+        const response = await fetch('./src/api/texts.json');
+        if (!response.ok) throw new Error('Error getting texts');
+
+        const projects = await response.json();
+
+        console.log(projects);
+        return projects;
+
+    }catch(error){
+        console.log(error);
+        return [];
+    }
+}
+
+async function languageManager(lang: "es" | "en"):Promise<void>{
+
+    if (lang === 'es'){
+        document.getElementById('btn-es')?.classList.add('btn-dark');
+        document.getElementById('btn-en')?.classList.add('btn-outline-dark');
+
+        document.getElementById('btn-es')?.classList.remove('btn-outline-dark');
+        document.getElementById('btn-en')?.classList.remove('btn-dark');
+    }else{
+        document.getElementById('btn-es')?.classList.remove('btn-dark');
+        document.getElementById('btn-en')?.classList.remove('btn-outline-dark');
+
+        document.getElementById('btn-en')?.classList.add('btn-dark');
+        document.getElementById('btn-es')?.classList.add('btn-outline-dark');
+    }
+
+    const [texts] = await getTexts();
+
+    //NAV
+    //MENU
+    //INDEX
+    const job: HTMLElement | null = document.getElementById('job')? document.getElementById('job') : null;
+    const description: HTMLElement | null = document.getElementById('description')? document.getElementById('description') : null;
+
+    if (job) job.textContent = texts[lang].index.job;
+    if (description) description.textContent = texts[lang].index.description;
+
+    //EXPERIENCE
+    //STATS
+    //PROJECTS
+}
 
 function showIndex():void{
 
