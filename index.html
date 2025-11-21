@@ -11,7 +11,7 @@
   <script type="module" defer src="./dist/ts/index.js" type="application/javascript"></script>
 </head>
 
-<body class="w-screen h-screen" >
+<body class="w-screen h-screen">
 
   <nav class="navbar fixed-top">
     <div class="container-fluid">
@@ -99,15 +99,12 @@
     <section id="timeline-vertical" class="flex md:hidden relative px16 mt-4 h-full">
       <div class="relative mx-auto my-auto h-4/5 flex flex-col items-center">
 
-        <!-- Línea vertical -->
         <div class="relative h-full w-1 bg-gray-200 rounded-full overflow-hidden ">
           <div id="timeline-vertical-draw" class="absolute top-0 left-0 h-full bg-black w-1 origin-top scale-y-0"></div>
         </div>
 
-        <!-- Eventos (lado izquierdo) -->
         <div id="events-up-vertical" class="absolute left-[-12rem] top-0 h-full flex flex-col justify-between"></div>
 
-        <!-- Eventos (lado derecho) -->
         <div id="events-down-vertical" class="absolute right-[-12rem] top-0 h-full flex flex-col justify-between"></div>
 
       </div>
