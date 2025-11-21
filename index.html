@@ -21,7 +21,10 @@
       </button>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+          <div class="btn-group" >
+              <button type="button" class="btn btn-dark" id="btn-es">ES</button>
+              <button type="button" class="btn btn-outline-dark" id="btn-en">EN</button>
+            </div>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -44,12 +47,9 @@
     </div>
   </nav>
 
-  <div id="index-container" class="flex min-h-screen items-center justify-center">
+  <div id="index-container" class="flex min-h-screen items-center justify-center text-">
 
-    <div class=" fade-in overflow-hidden 
-                w-[90%] md:w-[700px] max-h-[85dvh] md:max-h-[404px] mt-8 md:mt-0 max-w-4xl 
-                h-auto md:h-[28rem] 
-                rounded-lg shadow-lg flex flex-col md:flex-row">
+    <div class="fade-in overflow-hidden w-[90%] md:w-[700px] max-h-[85dvh] md:max-h-[404px] mt-8 md:mt-0 max-w-4xl h-auto md:h-[28rem] rounded-lg shadow-lg flex flex-col md:flex-row">
 
       <!-- Imagen -->
       <div class="flex-shrink-0 h-40 w-40 md:h-full md:w-[35%] 
@@ -62,16 +62,15 @@
 
       <!-- Tarjeta -->
       <div class="flex flex-col justify-center 
-                  px-6 md:p-10 
+                  px-6 md:p-8 
                   py-8 w-full ">
         <h5 id="name" class="text-3xl font-bold text-center">Julen Garcia</h5>
-        <div id="job" class="text-lg opacity-80 text-center">Web and Game Developer</div>
-
-        <p id="description" class="mt-3 text-sm opacity-75 overflow-hidden max-h-40 md:max-h-none whitespace-normal break-words text-center">
-          sdñifuashgdlbiausdbadlkfghjibadlfkjghb
+        <div id="job" class="text-lg opacity-80 text-center">Web and Unity developer</div>
+        <p id="description" class="mt-3 text-sm opacity-75 max-h-40 md:max-h-none whitespace-normal break-words text-center px-8 md:pl-0 md:pr-4">
+          Junior web developer and game developer with a passion for gaming and motorsports. Problem solver, fast learner and team player. 
         </p>
 
-        <ul id="contact" class="mt-4 space-y-1 text-sm opacity-80 mx-auto ">
+        <ul id="contact" class="mt-4 space-y-1 text-sm opacity-80 mx-auto">
           <li>Vitoria-Gasteiz, Álava, Spain</li>
           <li>+34673983437</li>
           <li>garcia.iturrospe.julen@gmail.com</li>
@@ -138,25 +137,25 @@
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">JavaScript</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 75%;" ></div>
+                <div class="bg-green-500 h-2 rounded-full" style="width: 75%;" ></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Typescript</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 20%;"></div>
+                <div class="bg-red-500 h-2 rounded-full" style="width: 20%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Java</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 40%;"></div>
+                <div class="bg-yellow-500 h-2 rounded-full" style="width: 40%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">C# (Unity)</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 35%;"></div>
+                <div class="bg-yellow-500 h-2 rounded-full" style="width: 35%;"></div>
               </div>
             </div>
           </div>
@@ -173,31 +172,31 @@
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">React</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 15%;"></div>
+                <div class="bg-red-500 h-2 rounded-full" style="width: 15%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">HTML</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 80%;"></div>
+                <div class="bg-green-500 h-2 rounded-full" style="width: 80%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">CSS</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 70%;"></div>
+                <div class="bg-green-500 h-2 rounded-full" style="width: 70%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Tailwind</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 70%;"></div>
+                <div class="bg-green-500 h-2 rounded-full" style="width: 70%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Bootstrap</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 30%;"></div>
+                <div class="bg-yellow-500 h-2 rounded-full" style="width: 30%;"></div>
               </div>
             </div>
           </div>
@@ -214,31 +213,31 @@
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Node.js</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 40%;"></div>
+                <div class="bg-yellow-500 h-2 rounded-full" style="width: 40%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Express.js</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 40%;"></div>
+                <div class="bg-yellow-500 h-2 rounded-full" style="width: 40%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Spring Boot</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 40%;"></div>
+                <div class="bg-yellow-500 h-2 rounded-full" style="width: 40%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">MongoDB</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 40%;"></div>
+                <div class="bg-yellow-500 h-2 rounded-full" style="width: 40%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">SQLite</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 60%;"></div>
+                <div class="bg-yellow-500 h-2 rounded-full" style="width: 60%;"></div>
               </div>
             </div>
           </div>
@@ -255,37 +254,37 @@
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Initiative</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 80%;"></div>
+                <div class="bg-green-500 h-2 rounded-full" style="width: 80%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Stress management</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%;"></div>
+                <div class="bg-green-500 h-2 rounded-full" style="width: 90%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Analytical Thinking</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%;"></div>
+                <div class="bg-green-500 h-2 rounded-full" style="width: 90%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Sharing Knowledge</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%;"></div>
+                <div class="bg-green-500 h-2 rounded-full" style="width: 90%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Communication</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 85%;"></div>
+                <div class="bg-green-500 h-2 rounded-full" style="width: 85%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
               <span class="text-sm text-gray-300 w-20">Problem Solving</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
-                <div class="bg-blue-500 h-2 rounded-full" style="width: 100%;"></div>
+                <div class="bg-green-500 h-2 rounded-full" style="width: 100%;"></div>
               </div>
             </div>
           </div>
