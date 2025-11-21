@@ -71,6 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function showIndex():void{
 
+    titleManager('Jotadev');
+
     indexContainer.classList.remove('hidden');
 
     experienceContainer.classList.add('hidden');
@@ -82,6 +84,8 @@ function showIndex():void{
 }
 
 function showExperience():void{
+
+    titleManager('Experience');
 
     experienceContainer.classList.remove('hidden');
 
@@ -101,6 +105,8 @@ function showExperience():void{
 
 function showStats():void{
 
+    titleManager('Skills');
+
     statsContainer.classList.remove('hidden');
 
     indexContainer.classList.add('hidden');
@@ -112,6 +118,8 @@ function showStats():void{
 }
 
 function showProjects():void{
+
+    titleManager('Projects');
 
     projectsContainer.classList.remove('hidden');
     fadedContainer.classList.remove('hidden');
@@ -273,7 +281,11 @@ function setVisibleStats():void{
 });
 }
 
+function titleManager(name: string):void{
 
+    logo.innerHTML = name;
+
+}
 
 
 
