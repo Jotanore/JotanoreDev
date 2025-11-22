@@ -271,6 +271,10 @@
   height: 100vh
 }
 
+.h-dvh {
+  height: 100dvh
+}
+
 .max-h-40 {
   max-height: 10rem
 }
@@ -323,8 +327,8 @@
   width: 100vw
 }
 
-.w-auto {
-  width: auto
+.w-dvw {
+  width: 100dvw
 }
 
 .max-w-4xl {
@@ -446,11 +450,6 @@
   background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1))
 }
 
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1))
-}
-
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity, 1))
@@ -474,11 +473,6 @@
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1))
-}
-
-.bg-stone-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(87 83 78 / var(--tw-bg-opacity, 1))
 }
 
 .bg-gradient-to-b {
