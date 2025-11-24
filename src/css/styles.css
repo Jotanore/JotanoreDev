@@ -7,6 +7,12 @@
   .collapse {
     visibility: visible
   }
+@media (max-height: 644px) {
+    #image-container{
+      height: 4rem !important;
+      width: 4rem !important;
+    }
+  }
 
   #name, #job, #description{
     text-align: left !important;

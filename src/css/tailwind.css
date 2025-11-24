@@ -164,10 +164,6 @@
   position: relative
 }
 
-.inset-0 {
-  inset: 0px
-}
-
 .bottom-4 {
   bottom: 1rem
 }
@@ -219,36 +215,12 @@
   margin-top: 3rem
 }
 
-.mt-4 {
-  margin-top: 1rem
-}
-
-.mt-5 {
-  margin-top: 1.25rem
+.mt-2 {
+  margin-top: 0.5rem
 }
 
 .mt-8 {
   margin-top: 2rem
-}
-
-.mb-0 {
-  margin-bottom: 0px
-}
-
-.mt-\[66px\] {
-  margin-top: 66px
-}
-
-.mt-auto {
-  margin-top: auto
-}
-
-.mt-1 {
-  margin-top: 0.25rem
-}
-
-.mt-2 {
-  margin-top: 0.5rem
 }
 
 .block {
@@ -303,16 +275,16 @@
   height: 100%
 }
 
-.max-h-40 {
-  max-height: 10rem
+.h-16 {
+  height: 4rem
+}
+
+.h-24 {
+  height: 6rem
 }
 
 .max-h-60 {
   max-height: 15rem
-}
-
-.max-h-full {
-  max-height: 100%
 }
 
 .w-1 {
@@ -351,6 +323,14 @@
   width: 100vw
 }
 
+.w-16 {
+  width: 4rem
+}
+
+.w-24 {
+  width: 6rem
+}
+
 .max-w-4xl {
   max-width: 56rem
 }
@@ -367,20 +347,16 @@
   flex: 1 1 0%
 }
 
-.flex-none {
-  flex: none
-}
-
 .flex-auto {
   flex: 1 1 auto
 }
 
-.flex-shrink-0 {
-  flex-shrink: 0
+.flex-none {
+  flex: none
 }
 
-.flex-shrink {
-  flex-shrink: 1
+.flex-shrink-0 {
+  flex-shrink: 0
 }
 
 .origin-left {
@@ -431,20 +407,12 @@
   align-items: stretch
 }
 
-.justify-start {
-  justify-content: flex-start
-}
-
 .justify-center {
   justify-content: center
 }
 
 .justify-between {
   justify-content: space-between
-}
-
-.justify-stretch {
-  justify-content: stretch
 }
 
 .gap-2 {
@@ -459,14 +427,6 @@
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse))
-}
-
-.justify-self-auto {
-  justify-self: auto
-}
-
-.justify-self-stretch {
-  justify-self: stretch
 }
 
 .overflow-hidden {
@@ -545,11 +505,6 @@
   --tw-gradient-to: transparent var(--tw-gradient-to-position)
 }
 
-.object-cover {
-  -o-object-fit: cover;
-     object-fit: cover
-}
-
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem
@@ -575,6 +530,10 @@
   padding-bottom: 1rem
 }
 
+.pb-3 {
+  padding-bottom: 0.75rem
+}
+
 .pe-3 {
   padding-inline-end: 0.75rem
 }
@@ -585,14 +544,6 @@
 
 .pt-40 {
   padding-top: 10rem
-}
-
-.pt-\[66px\] {
-  padding-top: 66px
-}
-
-.pb-0 {
-  padding-bottom: 0px
 }
 
 .text-left {
@@ -672,6 +623,7 @@
   .collapse {
     visibility: visible
   }
+
 
   #name, #job, #description{
     text-align: left !important;
@@ -789,10 +741,6 @@ html, body {
     display: none
   }
 
-  .md\:aspect-square {
-    aspect-ratio: 1 / 1
-  }
-
   .md\:h-\[28rem\] {
     height: 28rem
   }
@@ -801,28 +749,12 @@ html, body {
     height: 100%
   }
 
-  .md\:h-auto {
-    height: auto
-  }
-
   .md\:max-h-\[404px\] {
     max-height: 404px
   }
 
   .md\:max-h-none {
     max-height: none
-  }
-
-  .md\:max-h-\[100\%\] {
-    max-height: 100%
-  }
-
-  .md\:max-h-\[28rem\] {
-    max-height: 28rem
-  }
-
-  .md\:max-h-full {
-    max-height: 100%
   }
 
   .md\:w-\[35\%\] {
@@ -835,10 +767,6 @@ html, body {
 
   .md\:w-\[700px\] {
     width: 700px
-  }
-
-  .md\:max-w-\[28rem\] {
-    max-width: 28rem
   }
 
   .md\:scale-100 {

@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     drawProjects();
     setDriverLicenseTime();
     setVisibleStats();
+    showIndex();
 });
 async function getTexts() {
     try {
