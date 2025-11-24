@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     drawProjects();
     setDriverLicenseTime();
     setVisibleStats()
+    showIndex();
     
 });
 
