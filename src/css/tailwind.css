@@ -283,6 +283,10 @@
   height: 6rem
 }
 
+.h-28 {
+  height: 7rem
+}
+
 .max-h-60 {
   max-height: 15rem
 }
@@ -329,6 +333,10 @@
 
 .w-24 {
   width: 6rem
+}
+
+.w-28 {
+  width: 7rem
 }
 
 .max-w-4xl {
@@ -624,6 +632,12 @@
     visibility: visible
   }
 
+  @media (max-height: 644px) {
+    #image-container{
+      height: 4rem !important;
+      width: 4rem !important;
+    }
+  }
 
   #name, #job, #description{
     text-align: left !important;
