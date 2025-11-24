@@ -47,36 +47,36 @@
     </div>
   </nav>
 
-  <div id="index-container" class="flex h-dvh items-center justify-center text-">
+  <div id="index-container" class="flex h-[calc(100dvh-66px)]  pt-[66px] justify-center items-start md:items-center">
 
-    <div class="fade-in overflow-hidden w-[90%] md:w-[700px] max-h-[90dvh] md:max-h-[404px] mt-9 md:mt-0 max-w-4xl h-auto md:h-[28rem] rounded-lg shadow-lg flex flex-col md:flex-row">
+    <div class="fade-in overflow-hidden w-[90%] md:w-[700px] md:max-h-[404px] md:mt-0 max-w-4xl md:h-[28rem] rounded-lg shadow-lg flex flex-col md:flex-row h-full">
 
       <!-- Imagen -->
       <div class="flex-shrink-0 h-32 w-32 md:h-full md:w-[35%] 
                   rounded-full md:rounded-none overflow-hidden 
-                  md:mt-0 mx-auto md:mx-0 mt-10">
+                  md:mt-0 mx-auto md:mx-0 mt-8">
         <img src="./src/img/profile.png"
             class="block w-full h-auto scale-125 md:scale-100"
             alt="Foto">
       </div>
 
       <!-- Tarjeta -->
-      <div class="flex flex-col justify-center 
+      <div class="flex flex-col justify-between 
                   px-6 md:p-8 
-                  py-8 w-full ">
-        <h5 id="name" class="text-3xl font-bold text-center">Julen Garcia</h5>
-        <div id="job" class="text-lg opacity-80 text-center">Web and Unity developer</div>
-        <p id="description" class="mt-3 text-sm opacity-75 max-h-40 md:max-h-none whitespace-normal break-words text-center px-8 md:pl-0 md:pr-4">
+                  py-4 w-full h-full ">
+        <h5 id="name" class="flex-none text-3xl font-bold text-center">Julen Garcia</h5>
+        <div id="job" class="flex-none text-lg opacity-80 text-center">Web and Unity developer</div>
+        <p id="description" class="flex-auto flex items-center justify-center text-center pt-3 text-sm opacity-75 md:max-h-none whitespace-normal break-words px-8 md:pl-0 md:pr-4">
           Junior web developer and game developer with a passion for gaming and motorsports. Problem solver, fast learner and team player. 
         </p>
 
-        <ul id="contact" class="mt-4 space-y-1 text-sm opacity-80 mx-auto">
+        <ul id="contact" class="mt-2 flex-none space-y-1 text-sm opacity-80 mx-auto">
           <li>Vitoria-Gasteiz, Álava, Spain</li>
           <li>+34673983437</li>
           <li>garcia.iturrospe.julen@gmail.com</li>
         </ul>
 
-        <div id="socials" class="mt-5 flex gap-2 justify-center">
+        <div id="socials" class="flex-1 items-center mt-2 flex gap-2 justify-center">
           <a href="https://www.linkedin.com/in/julen-garcia-iturrospe-292904165/" target="_blank" rel="noopener noreferrer" class="no-underline">
              <i class="fa-brands fa-square-linkedin fa-3x" style="color: #000000"></i> 
           </a>
@@ -321,7 +321,7 @@
   </div>
 
   <div id="projects-container"
-  class="relative mx-auto mt-12 overflow-y-auto h-[90dvh]">
+  class=" relative mx-auto mt-12 overflow-y-auto h-[90dvh]">
   
   <!-- Capa de fundido superior -->
   <div id="fade-top" class="hidden pointer-events-none fixed top-0 left-0 z-10 h-40 

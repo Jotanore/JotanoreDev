@@ -164,6 +164,10 @@
   position: relative
 }
 
+.inset-0 {
+  inset: 0px
+}
+
 .bottom-4 {
   bottom: 1rem
 }
@@ -196,10 +200,6 @@
   z-index: 20
 }
 
-.m-auto {
-  margin: auto
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto
@@ -215,12 +215,8 @@
   margin-bottom: auto
 }
 
-.mt-10 {
-  margin-top: 2.5rem
-}
-
-.mt-3 {
-  margin-top: 0.75rem
+.mt-12 {
+  margin-top: 3rem
 }
 
 .mt-4 {
@@ -235,16 +231,24 @@
   margin-top: 2rem
 }
 
-.mt-9 {
-  margin-top: 2.25rem
+.mb-0 {
+  margin-bottom: 0px
+}
+
+.mt-\[66px\] {
+  margin-top: 66px
 }
 
 .mt-auto {
   margin-top: auto
 }
 
-.mt-12 {
-  margin-top: 3rem
+.mt-1 {
+  margin-top: 0.25rem
+}
+
+.mt-2 {
+  margin-top: 0.5rem
 }
 
 .block {
@@ -267,32 +271,12 @@
   height: 0.5rem
 }
 
-.h-4\/5 {
-  height: 80%
+.h-32 {
+  height: 8rem
 }
 
 .h-40 {
   height: 10rem
-}
-
-.h-auto {
-  height: auto
-}
-
-.h-full {
-  height: 100%
-}
-
-.h-screen {
-  height: 100vh
-}
-
-.h-dvh {
-  height: 100dvh
-}
-
-.h-32 {
-  height: 8rem
 }
 
 .h-\[90\%\] {
@@ -303,6 +287,22 @@
   height: 90dvh
 }
 
+.h-\[calc\(100dvh-66px\)\] {
+  height: calc(100dvh - 66px)
+}
+
+.h-auto {
+  height: auto
+}
+
+.h-dvh {
+  height: 100dvh
+}
+
+.h-full {
+  height: 100%
+}
+
 .max-h-40 {
   max-height: 10rem
 }
@@ -311,16 +311,8 @@
   max-height: 15rem
 }
 
-.max-h-\[85dvh\] {
-  max-height: 85dvh
-}
-
-.max-h-\[90dvh\] {
-  max-height: 90dvh
-}
-
-.min-h-screen {
-  min-height: 100vh
+.max-h-full {
+  max-height: 100%
 }
 
 .w-1 {
@@ -339,8 +331,8 @@
   width: 5rem
 }
 
-.w-40 {
-  width: 10rem
+.w-32 {
+  width: 8rem
 }
 
 .w-44 {
@@ -359,14 +351,6 @@
   width: 100vw
 }
 
-.w-dvw {
-  width: 100dvw
-}
-
-.w-32 {
-  width: 8rem
-}
-
 .max-w-4xl {
   max-width: 56rem
 }
@@ -383,8 +367,20 @@
   flex: 1 1 0%
 }
 
+.flex-none {
+  flex: none
+}
+
+.flex-auto {
+  flex: 1 1 auto
+}
+
 .flex-shrink-0 {
   flex-shrink: 0
+}
+
+.flex-shrink {
+  flex-shrink: 1
 }
 
 .origin-left {
@@ -423,6 +419,10 @@
   flex-direction: column-reverse
 }
 
+.items-start {
+  align-items: flex-start
+}
+
 .items-center {
   align-items: center
 }
@@ -431,12 +431,20 @@
   align-items: stretch
 }
 
+.justify-start {
+  justify-content: flex-start
+}
+
 .justify-center {
   justify-content: center
 }
 
 .justify-between {
   justify-content: space-between
+}
+
+.justify-stretch {
+  justify-content: stretch
 }
 
 .gap-2 {
@@ -451,6 +459,14 @@
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse))
+}
+
+.justify-self-auto {
+  justify-self: auto
+}
+
+.justify-self-stretch {
+  justify-self: stretch
 }
 
 .overflow-hidden {
@@ -529,6 +545,11 @@
   --tw-gradient-to: transparent var(--tw-gradient-to-position)
 }
 
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem
@@ -549,17 +570,29 @@
   padding-bottom: 4rem
 }
 
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem
 }
 
 .pe-3 {
   padding-inline-end: 0.75rem
 }
 
+.pt-3 {
+  padding-top: 0.75rem
+}
+
 .pt-40 {
   padding-top: 10rem
+}
+
+.pt-\[66px\] {
+  padding-top: 66px
+}
+
+.pb-0 {
+  padding-bottom: 0px
 }
 
 .text-left {
@@ -756,6 +789,10 @@ html, body {
     display: none
   }
 
+  .md\:aspect-square {
+    aspect-ratio: 1 / 1
+  }
+
   .md\:h-\[28rem\] {
     height: 28rem
   }
@@ -764,12 +801,28 @@ html, body {
     height: 100%
   }
 
+  .md\:h-auto {
+    height: auto
+  }
+
   .md\:max-h-\[404px\] {
     max-height: 404px
   }
 
   .md\:max-h-none {
     max-height: none
+  }
+
+  .md\:max-h-\[100\%\] {
+    max-height: 100%
+  }
+
+  .md\:max-h-\[28rem\] {
+    max-height: 28rem
+  }
+
+  .md\:max-h-full {
+    max-height: 100%
   }
 
   .md\:w-\[35\%\] {
@@ -784,6 +837,10 @@ html, body {
     width: 700px
   }
 
+  .md\:max-w-\[28rem\] {
+    max-width: 28rem
+  }
+
   .md\:scale-100 {
     --tw-scale-x: 1;
     --tw-scale-y: 1;
@@ -792,6 +849,10 @@ html, body {
 
   .md\:flex-row {
     flex-direction: row
+  }
+
+  .md\:items-center {
+    align-items: center
   }
 
   .md\:rounded-none {
