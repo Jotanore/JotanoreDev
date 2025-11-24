@@ -3,12 +3,12 @@ const indexButton = document.getElementById('index-button');
 const experienceButton = document.getElementById('experience-button');
 const statsButton = document.getElementById('stats-button');
 const projectsButton = document.getElementById('projects-button');
-const contactButton = document.getElementById('contact-button');
 const indexContainer = document.getElementById('index-container');
 const experienceContainer = document.getElementById('experience-container');
 const statsContainer = document.getElementById('stats-container');
 const projectsContainer = document.getElementById('projects-container');
-const fadedContainer = document.getElementById('fade-top');
+const fadedContainerTop = document.getElementById('fade-top');
+const fadedContainerBottom = document.getElementById('fade-top');
 const line = document.getElementById("timeline-draw");
 const eventsUp = document.getElementById("events-up");
 const eventsDown = document.getElementById("events-down");
@@ -35,7 +35,7 @@ const jobs = [
 ];
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM cargado');
-    console.log(indexButton, experienceButton, statsButton, projectsButton, contactButton);
+    console.log(indexButton, experienceButton, statsButton, projectsButton);
     document.getElementById("btn-es")?.addEventListener('click', () => languageManager('es'));
     document.getElementById("btn-en")?.addEventListener('click', () => languageManager('en'));
     logo.addEventListener('click', showIndex);
@@ -99,7 +99,8 @@ function showIndex() {
     experienceContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
-    fadedContainer.classList.add('hidden');
+    fadedContainerTop.classList.add('hidden');
+    fadedContainerBottom.classList.add('hidden');
     console.log('index');
 }
 function showExperience() {
@@ -108,7 +109,8 @@ function showExperience() {
     indexContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
-    fadedContainer.classList.add('hidden');
+    fadedContainerTop.classList.add('hidden');
+    fadedContainerBottom.classList.add('hidden');
     if (!isExperienceVisible) {
         timelineAnimation();
         timelineAnimationVertical();
@@ -122,13 +124,15 @@ function showStats() {
     indexContainer.classList.add('hidden');
     experienceContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
-    fadedContainer.classList.add('hidden');
+    fadedContainerTop.classList.add('hidden');
+    fadedContainerBottom.classList.add('hidden');
     console.log('experience');
 }
 function showProjects() {
     titleManager('Projects');
     projectsContainer.classList.remove('hidden');
-    fadedContainer.classList.remove('hidden');
+    fadedContainerTop.classList.remove('hidden');
+    fadedContainerBottom.classList.remove('hidden');
     indexContainer.classList.add('hidden');
     experienceContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');

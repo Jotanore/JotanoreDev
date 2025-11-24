@@ -5,13 +5,13 @@ const indexButton: HTMLButtonElement = document.getElementById('index-button') a
 const experienceButton: HTMLButtonElement = document.getElementById('experience-button') as HTMLButtonElement;
 const statsButton: HTMLButtonElement = document.getElementById('stats-button') as HTMLButtonElement;
 const projectsButton: HTMLButtonElement = document.getElementById('projects-button') as HTMLButtonElement;
-const contactButton: HTMLButtonElement = document.getElementById('contact-button') as HTMLButtonElement;
 
 const indexContainer: HTMLDivElement = document.getElementById('index-container') as HTMLDivElement;
 const experienceContainer: HTMLDivElement = document.getElementById('experience-container') as HTMLDivElement;
 const statsContainer: HTMLDivElement = document.getElementById('stats-container') as HTMLDivElement;
 const projectsContainer: HTMLDivElement = document.getElementById('projects-container') as HTMLDivElement;
-const fadedContainer: HTMLDivElement = document.getElementById('fade-top') as HTMLDivElement;
+const fadedContainerTop: HTMLDivElement = document.getElementById('fade-top') as HTMLDivElement;
+const fadedContainerBottom: HTMLDivElement = document.getElementById('fade-top') as HTMLDivElement;
 
 const line = document.getElementById("timeline-draw") as HTMLDivElement;
 const eventsUp = document.getElementById("events-up") as HTMLDivElement;
@@ -46,7 +46,7 @@ const jobs: EventData[] = [
 document.addEventListener('DOMContentLoaded', () => {
 
     console.log('DOM cargado');
-    console.log(indexButton, experienceButton, statsButton, projectsButton, contactButton);
+    console.log(indexButton, experienceButton, statsButton, projectsButton);
 
     document.getElementById("btn-es")?.addEventListener('click', () => languageManager('es'));
     document.getElementById("btn-en")?.addEventListener('click', () => languageManager('en'));
@@ -128,7 +128,8 @@ function showIndex():void{
     experienceContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
-    fadedContainer.classList.add('hidden');
+    fadedContainerTop.classList.add('hidden');
+    fadedContainerBottom.classList.add('hidden');
 
     console.log('index');
 }
@@ -142,7 +143,8 @@ function showExperience():void{
     indexContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
-    fadedContainer.classList.add('hidden');
+    fadedContainerTop.classList.add('hidden');
+    fadedContainerBottom.classList.add('hidden');
 
     if(!isExperienceVisible){
         timelineAnimation();
@@ -162,7 +164,8 @@ function showStats():void{
     indexContainer.classList.add('hidden');
     experienceContainer.classList.add('hidden');
     projectsContainer.classList.add('hidden');
-    fadedContainer.classList.add('hidden');
+    fadedContainerTop.classList.add('hidden');
+    fadedContainerBottom.classList.add('hidden');
 
     console.log('experience');
 }
@@ -172,7 +175,8 @@ function showProjects():void{
     titleManager('Projects');
 
     projectsContainer.classList.remove('hidden');
-    fadedContainer.classList.remove('hidden');
+    fadedContainerTop.classList.remove('hidden');
+    fadedContainerBottom.classList.remove('hidden');
 
     indexContainer.classList.add('hidden');
     experienceContainer.classList.add('hidden');
