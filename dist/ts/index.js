@@ -199,7 +199,7 @@ function timelineAnimation() {
 const createEventVertical = (container, data, colorClass, textAlignClass) => {
     data.forEach(event => {
         const div = document.createElement("div");
-        div.className = `event w-44 ${colorClass} ${textAlignClass}`;
+        div.className = `event text-[15px] ${colorClass} ${textAlignClass} event-vertical`;
         div.innerHTML = `
             <div class="text-sm font-bold">${event.year == "►" ? "▼" : event.year}</div>
             <div>${event.title}</div>

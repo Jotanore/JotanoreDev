@@ -33,6 +33,10 @@
   }
 }
 
+.event-vertical {
+  max-width: 10rem; /* ajusta según necesites */
+}
+
 .accordion-button:not(.collapsed) {
   background-color: #363636 !important;
   color: #fff !important;
