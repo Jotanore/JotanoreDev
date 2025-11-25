@@ -85,10 +85,18 @@ async function languageManager(lang) {
     //INDEX
     const job = document.getElementById('job') ? document.getElementById('job') : null;
     const description = document.getElementById('description') ? document.getElementById('description') : null;
+    const cvButton = document.getElementById('cv-button') ? document.getElementById('cv-button') : null;
     if (job)
         job.textContent = texts[lang].index.job;
     if (description)
         description.textContent = texts[lang].index.description;
+    if (cvButton)
+        if (lang === 'en') {
+            cvButton.setAttribute('href', './src/docs/CV-EN.pdf');
+        }
+        else {
+            cvButton.setAttribute('href', './src/docs/CV-ES.pdf');
+        }
     //EXPERIENCE
     //STATS
     //PROJECTS

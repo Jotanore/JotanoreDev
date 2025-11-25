@@ -110,9 +110,16 @@ async function languageManager(lang: "es" | "en"):Promise<void>{
     //INDEX
     const job: HTMLElement | null = document.getElementById('job')? document.getElementById('job') : null;
     const description: HTMLElement | null = document.getElementById('description')? document.getElementById('description') : null;
+    const cvButton: HTMLElement | null = document.getElementById('cv-button')? document.getElementById('cv-button') : null;
 
     if (job) job.textContent = texts[lang].index.job;
     if (description) description.textContent = texts[lang].index.description;
+    if (cvButton)
+        if(lang === 'en'){
+        cvButton.setAttribute('href', './src/docs/CV-EN.pdf');
+    }else{
+        cvButton.setAttribute('href', './src/docs/CV-ES.pdf');
+    }
 
     //EXPERIENCE
     //STATS
