@@ -106,7 +106,17 @@ async function languageManager(lang: "es" | "en"):Promise<void>{
     const [texts] = await getTexts();
 
     //NAV
+    
     //MENU
+    const indexMenuText: HTMLElement | null = document.getElementById('index-menu-text')? document.getElementById('index-menu-text') : null;
+    const experienceMenuText: HTMLElement | null = document.getElementById('experience-menu-text')? document.getElementById('experience-menu-text') : null;
+    const statsMenuText: HTMLElement | null = document.getElementById('stats-menu-text')? document.getElementById('stats-menu-text') : null;
+    const projectsMenuText: HTMLElement | null = document.getElementById('projects-menu-text')? document.getElementById('projects-menu-text') : null;
+
+    if (indexMenuText) indexMenuText.textContent = texts[lang].menu.index;
+    if (experienceMenuText) experienceMenuText.textContent = texts[lang].menu.experience;
+    if (statsMenuText) statsMenuText.textContent = texts[lang].menu.skills;
+    if (projectsMenuText) projectsMenuText.textContent = texts[lang].menu.projects;
     //INDEX
     const job: HTMLElement | null = document.getElementById('job')? document.getElementById('job') : null;
     const description: HTMLElement | null = document.getElementById('description')? document.getElementById('description') : null;
@@ -123,6 +133,7 @@ async function languageManager(lang: "es" | "en"):Promise<void>{
 
     //EXPERIENCE
     //STATS
+
     //PROJECTS
 }
 

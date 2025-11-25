@@ -2,7 +2,7 @@
     {
         "es":{
             "nav":{
-                "navLogo":"Jota",
+                "navLogo":"Jotadev",
                 "index":"Inicio",
                 "experience":"Experiencia",
                 "skills":"Estadisticas",
@@ -44,9 +44,45 @@
         },
 
         "en":{
+            "nav":{
+                "navLogo":"Jotadev",
+                "index":"Index",
+                "experience":"Experience",
+                "skills":"Skills",
+                "projects":"Projects"
+            },
+            "menu":{
+                "index":"Index",
+                "experience":"Experience",
+                "skills":"Skills",
+                "projects":"Projects"
+            },
             "index":{
                 "job":"Web and Unity developer",
                 "description": "Junior web developer and game developer with a passion for gaming and motorsports. Problem solver, fast learner and team player."
+            },
+            "experience":{
+                "title":"Experiencia profesional",
+                "subtitle":"Estudios y trabajos",
+                "subtitle2":"Estudios",
+                "subtitle3":"Trabajos"
+            },
+            "stats":{
+                "languajes":"Programming Languages",
+                "frontend":"Front-end skills",
+                "back":"Back-end skills",
+                "soft":"Soft skills",
+
+                "initiative":"Initiative",
+                "stress":"Stress Management",
+                "analitycal":"Analytic Thinking",
+                "knowledge":"Knowledge Sharing",
+                "communication":"Communication",
+                "problem":"Problem Solving"
+            },
+            "projects":{
+                "title":"Proyectos",
+                "subtitle":"Proyectos"
             }
         }
     }
