@@ -20,6 +20,8 @@ const eventsUpVertical = document.getElementById("events-up-vertical") as HTMLDi
 const eventsDownVertical = document.getElementById("events-down-vertical") as HTMLDivElement;
 
 let isExperienceVisible: boolean = false;
+let isSpanish: boolean = true;
+let activeView: "index" | "experience" | "stats" | "projects" = "index";
 
 const studies: EventData[] = [
     { year: "", title: "" },
@@ -42,14 +44,38 @@ const jobs: EventData[] = [
     { year: "►", title: "" },
 ];
 
+const titles = {
+  index: {
+        es: 'Jotadev',
+        en: 'Jotadev' 
+    },
+  experience: { 
+        es: 'Experiencia',
+        en: 'Experience' 
+    },
+  stats: { 
+        es: 'Habilidades',
+        en: 'Skills' 
+    },
+  projects: { 
+        es: 'Proyectos',
+        en: 'Projects' }
+};
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
     console.log('DOM cargado');
     console.log(indexButton, experienceButton, statsButton, projectsButton);
 
-    document.getElementById("btn-es")?.addEventListener('click', () => languageManager('es'));
-    document.getElementById("btn-en")?.addEventListener('click', () => languageManager('en'));
+    document.getElementById("btn-es")?.addEventListener('click', () => {
+        isSpanish = true;
+        languageManager('es')
+    });
+    document.getElementById("btn-en")?.addEventListener('click', () => {
+        isSpanish = false;
+        languageManager('en');
+    });
     
     logo.addEventListener('click', showIndex);
     indexButton.addEventListener('click', showIndex);
@@ -87,9 +113,13 @@ async function getTexts():Promise<any>{
     }
 }
 
+
 async function languageManager(lang: "es" | "en"):Promise<void>{
 
-    if (lang === 'es'){
+    isSpanish = (lang === 'es');
+    updateTitle();
+
+    if (isSpanish){
         document.getElementById('btn-es')?.classList.add('btn-dark');
         document.getElementById('btn-en')?.classList.add('btn-outline-dark');
 
@@ -105,8 +135,6 @@ async function languageManager(lang: "es" | "en"):Promise<void>{
 
     const [texts] = await getTexts();
 
-    //NAV
-    
     //MENU
     const indexMenuText: HTMLElement | null = document.getElementById('index-menu-text')? document.getElementById('index-menu-text') : null;
     const experienceMenuText: HTMLElement | null = document.getElementById('experience-menu-text')? document.getElementById('experience-menu-text') : null;
@@ -117,6 +145,7 @@ async function languageManager(lang: "es" | "en"):Promise<void>{
     if (experienceMenuText) experienceMenuText.textContent = texts[lang].menu.experience;
     if (statsMenuText) statsMenuText.textContent = texts[lang].menu.skills;
     if (projectsMenuText) projectsMenuText.textContent = texts[lang].menu.projects;
+
     //INDEX
     const job: HTMLElement | null = document.getElementById('job')? document.getElementById('job') : null;
     const description: HTMLElement | null = document.getElementById('description')? document.getElementById('description') : null;
@@ -139,7 +168,8 @@ async function languageManager(lang: "es" | "en"):Promise<void>{
 
 function showIndex():void{
 
-    titleManager('Jotadev');
+    activeView = 'index';
+    updateTitle();
 
     indexContainer.classList.remove('hidden');
 
@@ -154,7 +184,8 @@ function showIndex():void{
 
 function showExperience():void{
 
-    titleManager('Experience');
+    activeView = 'experience';
+    updateTitle();
 
     experienceContainer.classList.remove('hidden');
 
@@ -175,7 +206,9 @@ function showExperience():void{
 
 function showStats():void{
 
-    titleManager('Skills');
+    activeView = 'stats';
+    updateTitle();
+
 
     statsContainer.classList.remove('hidden');
 
@@ -190,7 +223,9 @@ function showStats():void{
 
 function showProjects():void{
 
-    titleManager('Projects');
+    activeView = 'projects';
+    updateTitle();
+    
 
     projectsContainer.classList.remove('hidden');
     fadedContainerTop.classList.remove('hidden');
@@ -351,6 +386,12 @@ function setVisibleStats():void{
     collapses.forEach(collapse => {
         collapse.classList.add('visible');
 });
+}
+
+function updateTitle(): void {
+
+  const lang = isSpanish ? 'es' : 'en';
+  titleManager(titles[activeView][lang]);
 }
 
 function titleManager(name: string):void{

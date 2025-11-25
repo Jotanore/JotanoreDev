@@ -15,6 +15,8 @@ const eventsDown = document.getElementById("events-down");
 const eventsUpVertical = document.getElementById("events-up-vertical");
 const eventsDownVertical = document.getElementById("events-down-vertical");
 let isExperienceVisible = false;
+let isSpanish = true;
+let activeView = "index";
 const studies = [
     { year: "", title: "" },
     { year: "2020-2023", title: "FP Superior Desarollo de Videojuegos" },
@@ -33,11 +35,35 @@ const jobs = [
     { year: "2024", title: "Monitor Polivalente @ Dreamfit" },
     { year: "►", title: "" },
 ];
+const titles = {
+    index: {
+        es: 'Jotadev',
+        en: 'Jotadev'
+    },
+    experience: {
+        es: 'Experiencia',
+        en: 'Experience'
+    },
+    stats: {
+        es: 'Habilidades',
+        en: 'Skills'
+    },
+    projects: {
+        es: 'Proyectos',
+        en: 'Projects'
+    }
+};
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM cargado');
     console.log(indexButton, experienceButton, statsButton, projectsButton);
-    document.getElementById("btn-es")?.addEventListener('click', () => languageManager('es'));
-    document.getElementById("btn-en")?.addEventListener('click', () => languageManager('en'));
+    document.getElementById("btn-es")?.addEventListener('click', () => {
+        isSpanish = true;
+        languageManager('es');
+    });
+    document.getElementById("btn-en")?.addEventListener('click', () => {
+        isSpanish = false;
+        languageManager('en');
+    });
     logo.addEventListener('click', showIndex);
     indexButton.addEventListener('click', showIndex);
     experienceButton.addEventListener('click', showExperience);
@@ -67,7 +93,9 @@ async function getTexts() {
     }
 }
 async function languageManager(lang) {
-    if (lang === 'es') {
+    isSpanish = (lang === 'es');
+    updateTitle();
+    if (isSpanish) {
         document.getElementById('btn-es')?.classList.add('btn-dark');
         document.getElementById('btn-en')?.classList.add('btn-outline-dark');
         document.getElementById('btn-es')?.classList.remove('btn-outline-dark');
@@ -80,7 +108,6 @@ async function languageManager(lang) {
         document.getElementById('btn-es')?.classList.add('btn-outline-dark');
     }
     const [texts] = await getTexts();
-    //NAV
     //MENU
     const indexMenuText = document.getElementById('index-menu-text') ? document.getElementById('index-menu-text') : null;
     const experienceMenuText = document.getElementById('experience-menu-text') ? document.getElementById('experience-menu-text') : null;
@@ -114,7 +141,8 @@ async function languageManager(lang) {
     //PROJECTS
 }
 function showIndex() {
-    titleManager('Jotadev');
+    activeView = 'index';
+    updateTitle();
     indexContainer.classList.remove('hidden');
     experienceContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
@@ -124,7 +152,8 @@ function showIndex() {
     console.log('index');
 }
 function showExperience() {
-    titleManager('Experience');
+    activeView = 'experience';
+    updateTitle();
     experienceContainer.classList.remove('hidden');
     indexContainer.classList.add('hidden');
     statsContainer.classList.add('hidden');
@@ -139,7 +168,8 @@ function showExperience() {
     console.log('experience');
 }
 function showStats() {
-    titleManager('Skills');
+    activeView = 'stats';
+    updateTitle();
     statsContainer.classList.remove('hidden');
     indexContainer.classList.add('hidden');
     experienceContainer.classList.add('hidden');
@@ -149,7 +179,8 @@ function showStats() {
     console.log('experience');
 }
 function showProjects() {
-    titleManager('Projects');
+    activeView = 'projects';
+    updateTitle();
     projectsContainer.classList.remove('hidden');
     fadedContainerTop.classList.remove('hidden');
     fadedContainerBottom.classList.remove('hidden');
@@ -268,6 +299,10 @@ function setVisibleStats() {
     collapses.forEach(collapse => {
         collapse.classList.add('visible');
     });
+}
+function updateTitle() {
+    const lang = isSpanish ? 'es' : 'en';
+    titleManager(titles[activeView][lang]);
 }
 function titleManager(name) {
     logo.innerHTML = name;

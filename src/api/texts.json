@@ -1,13 +1,6 @@
 [
     {
         "es":{
-            "nav":{
-                "navLogo":"Jotadev",
-                "index":"Inicio",
-                "experience":"Experiencia",
-                "skills":"Estadisticas",
-                "projects":"Proyectos"
-            },
             "menu":{
                 "index":"Inicio",
                 "experience":"Experiencia",
@@ -44,13 +37,6 @@
         },
 
         "en":{
-            "nav":{
-                "navLogo":"Jotadev",
-                "index":"Index",
-                "experience":"Experience",
-                "skills":"Skills",
-                "projects":"Projects"
-            },
             "menu":{
                 "index":"Index",
                 "experience":"Experience",
