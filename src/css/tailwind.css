@@ -200,6 +200,11 @@
   z-index: 20
 }
 
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto
@@ -213,16 +218,6 @@
 .my-auto {
   margin-top: auto;
   margin-bottom: auto
-}
-
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem
-}
-
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem
 }
 
 .mt-2 {
@@ -247,6 +242,10 @@
 
 .h-1 {
   height: 0.25rem
+}
+
+.h-11 {
+  height: 2.75rem
 }
 
 .h-2 {
@@ -281,22 +280,6 @@
   height: 100%
 }
 
-.h-10 {
-  height: 2.5rem
-}
-
-.h-\[60px\] {
-  height: 60px
-}
-
-.h-12 {
-  height: 3rem
-}
-
-.h-11 {
-  height: 2.75rem
-}
-
 .max-h-60 {
   max-height: 15rem
 }
@@ -307,6 +290,10 @@
 
 .w-1\/5 {
   width: 20%
+}
+
+.w-10 {
+  width: 2.5rem
 }
 
 .w-11\/12 {
@@ -331,10 +318,6 @@
 
 .w-screen {
   width: 100vw
-}
-
-.w-10 {
-  width: 2.5rem
 }
 
 .max-w-4xl {
@@ -493,11 +476,6 @@
   background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1))
 }
 
-.bg-slate-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity, 1))
-}
-
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops))
 }
@@ -605,6 +583,10 @@
   line-height: 2.5rem
 }
 
+.text-\[1\.6rem\] {
+  font-size: 1.6rem
+}
+
 .text-\[15px\] {
   font-size: 15px
 }
@@ -617,14 +599,6 @@
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem
-}
-
-.text-\[1\.6rem\] {
-  font-size: 1.6rem
-}
-
-.text-\[4rem\] {
-  font-size: 4rem
 }
 
 .font-bold {
@@ -644,10 +618,6 @@
 .text-yellow-500 {
   --tw-text-opacity: 1;
   color: rgb(234 179 8 / var(--tw-text-opacity, 1))
-}
-
-.text-\[rem\] {
-  color: rem
 }
 
 .no-underline {

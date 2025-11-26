@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createEvent(eventsDown, jobs, "text-yellow-500", "flex flex-col");
     createEventVertical(eventsUpVertical, studies, "text-stone-600", "text-right");
     createEventVertical(eventsDownVertical, jobs, "text-yellow-500", "text-left");
+    languageManager('es');
     drawProjects();
     setDriverLicenseTime();
     setVisibleStats();
@@ -138,6 +139,58 @@ async function languageManager(lang) {
         }
     //EXPERIENCE
     //STATS
+    const programmingLanguagesButton = document.getElementById('programming-languages-button') ? document.getElementById('programming-languages-button') : null;
+    const frontEndButton = document.getElementById('front-end-button') ? document.getElementById('front-end-button') : null;
+    const backEndButton = document.getElementById('back-end-button') ? document.getElementById('back-end-button') : null;
+    const softSkillsButton = document.getElementById('soft-skills-button') ? document.getElementById('soft-skills-button') : null;
+    const extrasButton = document.getElementById('extras-button') ? document.getElementById('extras-button') : null;
+    if (programmingLanguagesButton)
+        programmingLanguagesButton.textContent = texts[lang].stats.languages;
+    if (frontEndButton)
+        frontEndButton.textContent = texts[lang].stats.frontend;
+    if (backEndButton)
+        backEndButton.textContent = texts[lang].stats.backend;
+    if (softSkillsButton)
+        softSkillsButton.textContent = texts[lang].stats.softskills;
+    if (extrasButton)
+        extrasButton.textContent = texts[lang].stats.extras;
+    const initiativeTitle = document.getElementById('initiative-title') ? document.getElementById('initiative-title') : null;
+    const stressTitle = document.getElementById('stress-title') ? document.getElementById('stress-title') : null;
+    const analyticalTitle = document.getElementById('analytical-title') ? document.getElementById('analytical-title') : null;
+    const knowledgeTitle = document.getElementById('knowledge-title') ? document.getElementById('knowledge-title') : null;
+    const communicationTitle = document.getElementById('communication-title') ? document.getElementById('communication-title') : null;
+    const problemTitle = document.getElementById('problem-title') ? document.getElementById('problem-title') : null;
+    if (initiativeTitle)
+        initiativeTitle.textContent = texts[lang].stats.initiative;
+    if (stressTitle)
+        stressTitle.textContent = texts[lang].stats.stress;
+    if (analyticalTitle)
+        analyticalTitle.textContent = texts[lang].stats.analytical;
+    if (knowledgeTitle)
+        knowledgeTitle.textContent = texts[lang].stats.knowledge;
+    if (communicationTitle)
+        communicationTitle.textContent = texts[lang].stats.communication;
+    if (problemTitle)
+        problemTitle.textContent = texts[lang].stats.problem;
+    const spanishTitle = document.getElementById('spanish-title') ? document.getElementById('spanish-title') : null;
+    const spanishSkill = document.getElementById('spanish-level') ? document.getElementById('spanish-level') : null;
+    const englishTitle = document.getElementById('english-title') ? document.getElementById('english-title') : null;
+    const englishSkill = document.getElementById('english-level') ? document.getElementById('english-level') : null;
+    const carTitle = document.getElementById('car-driver-license-title') ? document.getElementById('car-driver-license-title') : null;
+    const bikeTitle = document.getElementById('moto-driver-license-title') ? document.getElementById('moto-driver-license-title') : null;
+    if (spanishTitle)
+        spanishTitle.textContent = texts[lang].stats.spanish;
+    if (spanishSkill)
+        spanishSkill.textContent = texts[lang].stats.spanishskill;
+    if (englishTitle)
+        englishTitle.textContent = texts[lang].stats.english;
+    if (englishSkill)
+        englishSkill.textContent = texts[lang].stats.englishskill;
+    if (carTitle)
+        carTitle.textContent = texts[lang].stats.car;
+    if (bikeTitle)
+        bikeTitle.textContent = texts[lang].stats.bike;
+    setDriverLicenseTime();
     //PROJECTS
 }
 function showIndex() {
@@ -291,8 +344,8 @@ function setDriverLicenseTime() {
     const todayYear = new Date().getFullYear();
     const carTime = (todayMonth - carLicenseMonth) >= 0 ? (todayYear - carLicenseYear) : (todayYear - carLicenseYear) - 1;
     const motoTime = (todayMonth - motoLicenseMonth) >= 0 ? (todayYear - motoLicenseYear) : (todayYear - motoLicenseYear) - 1;
-    MotoDriverLicenseTime.innerHTML = `${motoTime} years. Own motorcycle`;
-    CarDriverLicenseTime.innerHTML = `${carTime} years. Own car`;
+    MotoDriverLicenseTime.innerHTML = isSpanish ? `${motoTime} años. Propia moto.` : `${motoTime} years. Own motorcycle.`;
+    CarDriverLicenseTime.innerHTML = isSpanish ? `${carTime} años. Coche propio.` : `${carTime} years. Own car.`;
 }
 function setVisibleStats() {
     const collapses = document.querySelectorAll('.vis');

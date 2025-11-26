@@ -142,8 +142,8 @@
     <div class="accordion flex-1" id="accordionExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-            aria-expanded="true" aria-controls="collapseOne">
+          <button id="programming-languages-button" class="accordion-button" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             Programming Languages
           </button>
         </h2>
@@ -178,7 +178,7 @@
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          <button id="front-end-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
             Front-End Skills
           </button>
@@ -220,7 +220,7 @@
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          <button id="back-end-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
             Back-End Skills
           </button>
@@ -262,7 +262,7 @@
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          <button id="soft-skills-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
             Soft Skills
           </button>
@@ -270,37 +270,37 @@
         <div id="collapseFour" class="accordion-collapse collapse vis" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <div class="my-2 flex items-center gap-4">
-              <span class="text-sm text-gray-300 w-20">Initiative</span>
+              <span id="initiative-title" class="text-sm text-gray-300 w-20">Initiative</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-green-500 h-2 rounded-full" style="width: 80%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
-              <span class="text-sm text-gray-300 w-20">Stress management</span>
+              <span id="stress-title" class="text-sm text-gray-300 w-20">Stress management</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-green-500 h-2 rounded-full" style="width: 90%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
-              <span class="text-sm text-gray-300 w-20">Analytical Thinking</span>
+              <span id="analytical-title" class="text-sm text-gray-300 w-20">Analytical Thinking</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-green-500 h-2 rounded-full" style="width: 90%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
-              <span class="text-sm text-gray-300 w-20">Sharing Knowledge</span>
+              <span id="knowledge-title" class="text-sm text-gray-300 w-20">Sharing Knowledge</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-green-500 h-2 rounded-full" style="width: 90%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
-              <span class="text-sm text-gray-300 w-20">Communication</span>
+              <span id="communication-title" class="text-sm text-gray-300 w-20">Communication</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-green-500 h-2 rounded-full" style="width: 85%;"></div>
               </div>
             </div>
             <div class="my-2 flex items-center gap-4">
-              <span class="text-sm text-gray-300 w-20">Problem Solving</span>
+              <span id="problem-title" class="text-sm text-gray-300 w-20">Problem Solving</span>
               <div class="flex-1 bg-gray-300 h-2 rounded-full">
                 <div class="bg-green-500 h-2 rounded-full" style="width: 100%;"></div>
               </div>
@@ -310,7 +310,7 @@
       </div>
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          <button id="extras-button" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
             Extras
           </button>
@@ -318,19 +318,19 @@
         <div id="collapseFive" class="accordion-collapse collapse vis" data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <div class="my-2 flex items-center gap-4">
-              <span class="text-sm text-gray-300 w-20">Spanish</span>
-              <div class="">Native</div>
+              <span id="spanish-title" class="text-sm text-gray-300 w-20">Spanish</span>
+              <div id="spanish-level" class="">Native</div>
             </div>
             <div class="my-2 flex items-center gap-4">
-              <span class="text-sm text-gray-300 w-20">English</span>
-              <div class="">B2 GSE 59-75 (Intermediate)</div>
+              <span id="english-title" class="text-sm text-gray-300 w-20">English</span>
+              <div id="english-level" class="">B2 GSE 59-75 (Intermediate)</div>
             </div>
             <div class="my-2 flex items-center gap-4">
-              <span class="text-sm text-gray-300 w-20">Bike Driving License (A2)</span>
+              <span id="moto-driver-license-title" class="text-sm text-gray-300 w-20">Bike Driving License (A2)</span>
               <div id="moto-driver-license-time" class="">24 Years</div>
             </div>
             <div class="my-2 flex items-center gap-4">
-              <span class="text-sm text-gray-300 w-20">Car Driving License (B)</span>
+              <span id="car-driver-license-title" class="text-sm text-gray-300 w-20">Car Driving License (B)</span>
               <div id="car-driver-license-time" class="">6 Years</div>
             </div>
           </div>

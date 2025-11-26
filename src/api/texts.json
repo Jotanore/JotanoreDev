@@ -18,17 +18,25 @@
                 "subtitle3":"Trabajos"
             },
             "stats":{
-                "languajes":"Lenguajes de programación",
+                "languages":"Lenguajes de programación",
                 "frontend":"Habilidades Front-end",
-                "back":"Habilidades Back-end",
-                "soft":"Habilidades Blandas",
+                "backend":"Habilidades Back-end",
+                "softskills":"Habilidades Blandas",
+                "extras": "Extras",
 
                 "initiative":"Iniciativa",
                 "stress":"Gestión de estrés",
-                "analitycal":"Pensamiento análitico",
+                "analytical":"Pensamiento análitico",
                 "knowledge":"Compartición de conocimientos",
                 "communication":"Comunicación",
-                "problem":"Resolución de problemas"
+                "problem":"Resolución de problemas",
+
+                "spanish":"Español",
+                "spanishskill":"Nativo.",
+                "english":"Inglés",
+                "englishskill":"B2 GSE 59-75 (Intermedio)",
+                "car":"Carnet B",
+                "bike":"Carnet A2"
             },
             "projects":{
                 "title":"Proyectos",
@@ -54,17 +62,25 @@
                 "subtitle3":"Trabajos"
             },
             "stats":{
-                "languajes":"Programming Languages",
+                "languages":"Programming Languages",
                 "frontend":"Front-end skills",
-                "back":"Back-end skills",
-                "soft":"Soft skills",
+                "backend":"Back-end skills",
+                "softskills":"Soft skills",
+                "extras": "Extras",
 
                 "initiative":"Initiative",
                 "stress":"Stress Management",
-                "analitycal":"Analytic Thinking",
+                "analytical":"Analytic Thinking",
                 "knowledge":"Knowledge Sharing",
                 "communication":"Communication",
-                "problem":"Problem Solving"
+                "problem":"Problem Solving",
+
+                "spanish":"Spanish",
+                "spanishskill":"Native",
+                "english":"English",
+                "englishskill":"B2 GSE 59-75 (Intermediate)",
+                "car":"Car Driving License (B)",
+                "bike":"Motorcycle Driving License (A2)"
             },
             "projects":{
                 "title":"Proyectos",
