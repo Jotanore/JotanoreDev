@@ -17,74 +17,57 @@ const eventsDownVertical = document.getElementById("events-down-vertical");
 let isExperienceVisible = false;
 let isSpanish = true;
 let activeView = "index";
-const studies = [
-    { year: "", title: "" },
-    { year: "2020-2023", title: "FP Superior Desarollo de Videojuegos" },
-    { year: "", title: "" },
-    { year: "", title: "" },
-    { year: "", title: "" },
-    { year: "2024", title: "Curso Javascript from Zero to Expert" },
-    { year: "2025", title: `Bootcamp Desarrollo Fullstack <br> Curso Desarollo en Java` },
-];
-const jobs = [
-    { year: "2018-2019", title: "Esports Coach @ Baskonia" },
-    { year: "2020", title: "Expendedor @ Avia <br> Freelance eSports Coach" },
-    { year: "2021", title: "Freelance eSports Coach" },
-    { year: "2022", title: "Auxiliar @ Dreamfit <br> Gaming Content Leader @ Cracked.club <br> Freelance eSports Coach" },
-    { year: "►", title: "" },
-    { year: "2024", title: "Monitor Polivalente @ Dreamfit" },
-    { year: "►", title: "" },
-];
-const titles = {
-    index: {
-        es: 'Jotadev',
-        en: 'Jotadev'
-    },
-    experience: {
-        es: 'Experiencia',
-        en: 'Experience'
-    },
-    stats: {
-        es: 'Habilidades',
-        en: 'Skills'
-    },
-    projects: {
-        es: 'Proyectos',
-        en: 'Projects'
-    }
-};
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM cargado');
-    console.log(indexButton, experienceButton, statsButton, projectsButton);
+let textsData;
+let timelineTimeouts = [];
+let timelineTimeoutsVertical = [];
+document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById("btn-es")?.addEventListener('click', () => {
         isSpanish = true;
         languageManager('es');
+        const langData = textsData[isSpanish ? 'es' : 'en'];
+        refreshExperience();
+        createEvent(eventsUp, langData.experience.studies, "text-stone-600", "flex flex-col-reverse");
+        createEvent(eventsDown, langData.experience.jobs, "text-yellow-500", "flex flex-col");
+        createEventVertical(eventsUpVertical, langData.experience.studies, "text-stone-600", "text-right");
+        createEventVertical(eventsDownVertical, langData.experience.jobs, "text-yellow-500", "text-left");
+        timelineAnimation();
+        timelineAnimationVertical();
     });
     document.getElementById("btn-en")?.addEventListener('click', () => {
         isSpanish = false;
         languageManager('en');
+        const langData = textsData[isSpanish ? 'es' : 'en'];
+        refreshExperience();
+        createEvent(eventsUp, langData.experience.studies, "text-stone-600", "flex flex-col-reverse");
+        createEvent(eventsDown, langData.experience.jobs, "text-yellow-500", "flex flex-col");
+        createEventVertical(eventsUpVertical, langData.experience.studies, "text-stone-600", "text-right");
+        createEventVertical(eventsDownVertical, langData.experience.jobs, "text-yellow-500", "text-left");
+        timelineAnimation();
+        timelineAnimationVertical();
     });
+    textsData = await getTexts();
+    const langData = textsData[isSpanish ? 'es' : 'en'];
     logo.addEventListener('click', showIndex);
     indexButton.addEventListener('click', showIndex);
     experienceButton.addEventListener('click', showExperience);
     statsButton.addEventListener('click', showStats);
     projectsButton.addEventListener('click', showProjects);
-    createEvent(eventsUp, studies, "text-stone-600", "flex flex-col-reverse");
-    createEvent(eventsDown, jobs, "text-yellow-500", "flex flex-col");
-    createEventVertical(eventsUpVertical, studies, "text-stone-600", "text-right");
-    createEventVertical(eventsDownVertical, jobs, "text-yellow-500", "text-left");
     languageManager('es');
     drawProjects();
     setDriverLicenseTime();
     setVisibleStats();
     showIndex();
+    createEvent(eventsUp, langData.experience.studies, "text-stone-600", "flex flex-col-reverse");
+    createEvent(eventsDown, langData.experience.jobs, "text-yellow-500", "flex flex-col");
+    createEventVertical(eventsUpVertical, langData.experience.studies, "text-stone-600", "text-right");
+    createEventVertical(eventsDownVertical, langData.experience.jobs, "text-yellow-500", "text-left");
 });
 async function getTexts() {
     try {
         const response = await fetch('./src/api/texts.json');
         if (!response.ok)
             throw new Error('Error getting texts');
-        const projects = await response.json();
+        const [projects] = await response.json();
         console.log(projects);
         return projects;
     }
@@ -95,6 +78,7 @@ async function getTexts() {
 }
 async function languageManager(lang) {
     isSpanish = (lang === 'es');
+    const langData = textsData[isSpanish ? 'es' : 'en'];
     updateTitle();
     if (isSpanish) {
         document.getElementById('btn-es')?.classList.add('btn-dark');
@@ -108,28 +92,27 @@ async function languageManager(lang) {
         document.getElementById('btn-en')?.classList.add('btn-dark');
         document.getElementById('btn-es')?.classList.add('btn-outline-dark');
     }
-    const [texts] = await getTexts();
     //MENU
     const indexMenuText = document.getElementById('index-menu-text') ? document.getElementById('index-menu-text') : null;
     const experienceMenuText = document.getElementById('experience-menu-text') ? document.getElementById('experience-menu-text') : null;
     const statsMenuText = document.getElementById('stats-menu-text') ? document.getElementById('stats-menu-text') : null;
     const projectsMenuText = document.getElementById('projects-menu-text') ? document.getElementById('projects-menu-text') : null;
     if (indexMenuText)
-        indexMenuText.textContent = texts[lang].menu.index;
+        indexMenuText.textContent = langData.menu.index;
     if (experienceMenuText)
-        experienceMenuText.textContent = texts[lang].menu.experience;
+        experienceMenuText.textContent = langData.menu.experience;
     if (statsMenuText)
-        statsMenuText.textContent = texts[lang].menu.skills;
+        statsMenuText.textContent = langData.menu.skills;
     if (projectsMenuText)
-        projectsMenuText.textContent = texts[lang].menu.projects;
+        projectsMenuText.textContent = langData.menu.projects;
     //INDEX
     const job = document.getElementById('job') ? document.getElementById('job') : null;
     const description = document.getElementById('description') ? document.getElementById('description') : null;
     const cvButton = document.getElementById('cv-button') ? document.getElementById('cv-button') : null;
     if (job)
-        job.textContent = texts[lang].index.job;
+        job.textContent = langData.index.job;
     if (description)
-        description.textContent = texts[lang].index.description;
+        description.textContent = langData.index.description;
     if (cvButton)
         if (lang === 'en') {
             cvButton.setAttribute('href', './src/docs/CV-EN.pdf');
@@ -145,15 +128,15 @@ async function languageManager(lang) {
     const softSkillsButton = document.getElementById('soft-skills-button') ? document.getElementById('soft-skills-button') : null;
     const extrasButton = document.getElementById('extras-button') ? document.getElementById('extras-button') : null;
     if (programmingLanguagesButton)
-        programmingLanguagesButton.textContent = texts[lang].stats.languages;
+        programmingLanguagesButton.textContent = langData.stats.languages;
     if (frontEndButton)
-        frontEndButton.textContent = texts[lang].stats.frontend;
+        frontEndButton.textContent = langData.stats.frontend;
     if (backEndButton)
-        backEndButton.textContent = texts[lang].stats.backend;
+        backEndButton.textContent = langData.stats.backend;
     if (softSkillsButton)
-        softSkillsButton.textContent = texts[lang].stats.softskills;
+        softSkillsButton.textContent = langData.stats.softskills;
     if (extrasButton)
-        extrasButton.textContent = texts[lang].stats.extras;
+        extrasButton.textContent = langData.stats.extras;
     const initiativeTitle = document.getElementById('initiative-title') ? document.getElementById('initiative-title') : null;
     const stressTitle = document.getElementById('stress-title') ? document.getElementById('stress-title') : null;
     const analyticalTitle = document.getElementById('analytical-title') ? document.getElementById('analytical-title') : null;
@@ -161,17 +144,17 @@ async function languageManager(lang) {
     const communicationTitle = document.getElementById('communication-title') ? document.getElementById('communication-title') : null;
     const problemTitle = document.getElementById('problem-title') ? document.getElementById('problem-title') : null;
     if (initiativeTitle)
-        initiativeTitle.textContent = texts[lang].stats.initiative;
+        initiativeTitle.textContent = langData.stats.initiative;
     if (stressTitle)
-        stressTitle.textContent = texts[lang].stats.stress;
+        stressTitle.textContent = langData.stats.stress;
     if (analyticalTitle)
-        analyticalTitle.textContent = texts[lang].stats.analytical;
+        analyticalTitle.textContent = langData.stats.analytical;
     if (knowledgeTitle)
-        knowledgeTitle.textContent = texts[lang].stats.knowledge;
+        knowledgeTitle.textContent = langData.stats.knowledge;
     if (communicationTitle)
-        communicationTitle.textContent = texts[lang].stats.communication;
+        communicationTitle.textContent = langData.stats.communication;
     if (problemTitle)
-        problemTitle.textContent = texts[lang].stats.problem;
+        problemTitle.textContent = langData.stats.problem;
     const spanishTitle = document.getElementById('spanish-title') ? document.getElementById('spanish-title') : null;
     const spanishSkill = document.getElementById('spanish-level') ? document.getElementById('spanish-level') : null;
     const englishTitle = document.getElementById('english-title') ? document.getElementById('english-title') : null;
@@ -179,17 +162,17 @@ async function languageManager(lang) {
     const carTitle = document.getElementById('car-driver-license-title') ? document.getElementById('car-driver-license-title') : null;
     const bikeTitle = document.getElementById('moto-driver-license-title') ? document.getElementById('moto-driver-license-title') : null;
     if (spanishTitle)
-        spanishTitle.textContent = texts[lang].stats.spanish;
+        spanishTitle.textContent = langData.stats.spanish;
     if (spanishSkill)
-        spanishSkill.textContent = texts[lang].stats.spanishskill;
+        spanishSkill.textContent = langData.stats.spanishskill;
     if (englishTitle)
-        englishTitle.textContent = texts[lang].stats.english;
+        englishTitle.textContent = langData.stats.english;
     if (englishSkill)
-        englishSkill.textContent = texts[lang].stats.englishskill;
+        englishSkill.textContent = langData.stats.englishskill;
     if (carTitle)
-        carTitle.textContent = texts[lang].stats.car;
+        carTitle.textContent = langData.stats.car;
     if (bikeTitle)
-        bikeTitle.textContent = texts[lang].stats.bike;
+        bikeTitle.textContent = langData.stats.bike;
     setDriverLicenseTime();
     //PROJECTS
 }
@@ -286,21 +269,27 @@ const createEvent = (container, data, colorClass, textAlignClass) => {
     });
 };
 function timelineAnimation() {
-    // Animar línea
+    timelineTimeouts.forEach(timeout => clearTimeout(timeout));
+    timelineTimeouts = [];
+    line.style.transition = "transform 0s";
+    line.style.transform = "scaleX(0)";
     setTimeout(() => {
-        line.classList.add("animate");
+        line.style.transition = "transform 3s linear";
+        line.style.transform = "scaleX(1)";
     }, 100);
+    const langData = textsData[isSpanish ? 'es' : 'en'];
     // Mostrar eventos escalonadamente, sincronizando estudio + trabajo
     const totalDuration = 3200; // duración total de la línea
-    const steps = studies.length; // número de puntos (asumimos igual para estudios y trabajos)
+    const steps = langData.experience.studies.length; // número de puntos (asumimos igual para estudios y trabajos)
     for (let i = 0; i < steps; i++) {
         const delay = (i / steps) * totalDuration;
-        setTimeout(() => {
+        const timeout = setTimeout(() => {
             const upEvent = eventsUp.children[i];
             const downEvent = eventsDown.children[i];
             upEvent.classList.add("visible");
             downEvent.classList.add("visible");
         }, delay);
+        timelineTimeouts.push(timeout);
     }
 }
 ;
@@ -317,20 +306,27 @@ const createEventVertical = (container, data, colorClass, textAlignClass) => {
 };
 function timelineAnimationVertical() {
     const lineVertical = document.getElementById("timeline-vertical-draw");
+    timelineTimeoutsVertical.forEach(timeout => clearTimeout(timeout));
+    timelineTimeoutsVertical = [];
+    lineVertical.style.transition = "transform 0s";
+    lineVertical.style.transform = "scaleY(0)";
+    const langData = textsData[isSpanish ? 'es' : 'en'];
+    const steps = langData.experience.studies.length;
     // animamos la línea
     setTimeout(() => {
-        lineVertical.classList.add("animate");
+        lineVertical.style.transition = "transform 3s linear";
+        lineVertical.style.transform = "scaleY(1)";
     }, 100);
-    const steps = studies.length;
     const totalDuration = 3200;
     for (let i = 0; i < steps; i++) {
         const delay = (i / steps) * totalDuration;
-        setTimeout(() => {
+        const timeout = setTimeout(() => {
             const upEvent = eventsUpVertical.children[i];
             const downEvent = eventsDownVertical.children[i];
             upEvent.classList.add("visible");
             downEvent.classList.add("visible");
         }, delay);
+        timelineTimeoutsVertical.push(timeout);
     }
 }
 function setDriverLicenseTime() {
@@ -355,10 +351,16 @@ function setVisibleStats() {
 }
 function updateTitle() {
     const lang = isSpanish ? 'es' : 'en';
-    titleManager(titles[activeView][lang]);
+    titleManager(textsData.titles[activeView][lang]);
 }
 function titleManager(name) {
     logo.innerHTML = name;
+}
+function refreshExperience() {
+    eventsUp.innerHTML = '';
+    eventsDown.innerHTML = '';
+    eventsUpVertical.innerHTML = '';
+    eventsDownVertical.innerHTML = '';
 }
 export {};
 //# sourceMappingURL=index.js.map
