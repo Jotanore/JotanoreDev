@@ -82,21 +82,12 @@ html, body {
 
 #timeline-draw {
   transform-origin: left;
-  transform: scaleX(0);
-  transition: transform 3s linear; 
-}
-#timeline-draw.animate {
-  transform: scaleX(1);
 }
 
 #timeline-vertical-draw {
   transform-origin: top;
-  transform: scaleY(0);
-  transition: transform 3s linear; 
 }
-#timeline-vertical-draw.animate {
-  transform: scaleY(1);
-}
+
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
