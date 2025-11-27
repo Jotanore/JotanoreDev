@@ -1,90 +1,217 @@
 [
     {
-        "es":{
-            "menu":{
-                "index":"Inicio",
-                "experience":"Experiencia",
-                "skills":"Habilidades",
-                "projects":"Proyectos"
+        "titles": {
+            "index": {
+                "es": "Jotadev",
+                "en": "Jotadev"
             },
-            "index":{
-                "job":"Desarrollador web y Unity",
-                "description": "Desarrollador web y de videojuegos con pasion en torno al gaming y los deportes de motor. Orientado a la resolución de problemas, de aprendizaje rápido y de jugador en equipo."
+            "experience": {
+                "es": "Experiencia",
+                "en": "Experience"
             },
-            "experience":{
-                "title":"Experiencia profesional",
-                "subtitle":"Estudios y trabajos",
-                "subtitle2":"Estudios",
-                "subtitle3":"Trabajos"
+            "stats": {
+                "es": "Habilidades",
+                "en": "Skills"
             },
-            "stats":{
-                "languages":"Lenguajes de programación",
-                "frontend":"Habilidades Front-end",
-                "backend":"Habilidades Back-end",
-                "softskills":"Habilidades Blandas",
-                "extras": "Extras",
-
-                "initiative":"Iniciativa",
-                "stress":"Gestión de estrés",
-                "analytical":"Pensamiento análitico",
-                "knowledge":"Compartición de conocimientos",
-                "communication":"Comunicación",
-                "problem":"Resolución de problemas",
-
-                "spanish":"Español",
-                "spanishskill":"Nativo.",
-                "english":"Inglés",
-                "englishskill":"B2 GSE 59-75 (Intermedio)",
-                "car":"Carnet B",
-                "bike":"Carnet A2"
-            },
-            "projects":{
-                "title":"Proyectos",
-                "subtitle":"Proyectos"
+            "projects": {
+                "es": "Proyectos",
+                "en": "Projects"
             }
         },
-
-        "en":{
-            "menu":{
-                "index":"Index",
-                "experience":"Experience",
-                "skills":"Skills",
-                "projects":"Projects"
+        "es": {
+            "menu": {
+                "index": "Inicio",
+                "experience": "Experiencia",
+                "skills": "Habilidades",
+                "projects": "Proyectos"
             },
-            "index":{
-                "job":"Web and Unity developer",
+            "index": {
+                "job": "Desarrollador web y Unity",
+                "description": "Desarrollador web y de videojuegos con pasion en torno al gaming y los deportes de motor. Orientado a la resolución de problemas, de aprendizaje rápido y de jugador en equipo."
+            },
+            "experience": {
+                "title": "Experiencia profesional",
+                "studies": [
+                    {
+                        "year": "",
+                        "title": ""
+                    },
+                    {
+                        "year": "2020-2023",
+                        "title": "FP Superior Desarollo de Video879789juegos"
+                    },
+                    {
+                        "year": "",
+                        "title": ""
+                    },
+                    {
+                        "year": "",
+                        "title": ""
+                    },
+                    {
+                        "year": "",
+                        "title": ""
+                    },
+                    {
+                        "year": "2024",
+                        "title": "Curso Javascript from Zero to Expert"
+                    },
+                    {
+                        "year": "2025",
+                        "title": "`Bootcamp Desarrollo Fullstack <br> Curso Desarollo en Java`"
+                    }
+                ],
+                "jobs": [
+                    {
+                        "year": "2018-2019",
+                        "title": "Esports Coach @ Baskonia"
+                    },
+                    {
+                        "year": "2020",
+                        "title": "Expendedor @ Avia <br> Freelance eSports Coach"
+                    },
+                    {
+                        "year": "2021",
+                        "title": "Freelance eSports Coach"
+                    },
+                    {
+                        "year": "2022",
+                        "title": "Auxiliar @ Dreamfit <br> Gaming Content Leader @ Cracked.club <br> Freelance eSports Coach"
+                    },
+                    {
+                        "year": "►",
+                        "title": ""
+                    },
+                    {
+                        "year": "2024",
+                        "title": "Monitor Polivalente @ Dreamfit"
+                    },
+                    {
+                        "year": "►",
+                        "title": ""
+                    }
+                ]
+            },
+            "stats": {
+                "languages": "Lenguajes de programación",
+                "frontend": "Habilidades Front-end",
+                "backend": "Habilidades Back-end",
+                "softskills": "Habilidades Blandas",
+                "extras": "Extras",
+                "initiative": "Iniciativa",
+                "stress": "Gestión de estrés",
+                "analytical": "Pensamiento análitico",
+                "knowledge": "Compartición de conocimientos",
+                "communication": "Comunicación",
+                "problem": "Resolución de problemas",
+                "spanish": "Español",
+                "spanishskill": "Nativo.",
+                "english": "Inglés",
+                "englishskill": "B2 GSE 59-75 (Intermedio)",
+                "car": "Carnet B",
+                "bike": "Carnet A2"
+            },
+            "projects": {
+                "title": "Proyectos",
+                "subtitle": "Proyectos"
+            }
+        },
+        "en": {
+            "menu": {
+                "index": "Index",
+                "experience": "Experience",
+                "skills": "Skills",
+                "projects": "Projects"
+            },
+            "index": {
+                "job": "Web and Unity developer",
                 "description": "Junior web developer and game developer with a passion for gaming and motorsports. Problem solver, fast learner and team player."
             },
-            "experience":{
-                "title":"Experiencia profesional",
-                "subtitle":"Estudios y trabajos",
-                "subtitle2":"Estudios",
-                "subtitle3":"Trabajos"
+            "experience": {
+                "title": "Experiencia profesional",
+                "studies": [
+                    {
+                        "year": "",
+                        "title": ""
+                    },
+                    {
+                        "year": "2020-2023",
+                        "title": "FP Superior Desarollo de VideojuegosAAA"
+                    },
+                    {
+                        "year": "",
+                        "title": ""
+                    },
+                    {
+                        "year": "",
+                        "title": ""
+                    },
+                    {
+                        "year": "",
+                        "title": ""
+                    },
+                    {
+                        "year": "2024",
+                        "title": "Curso Javascript from Zero to Expert"
+                    },
+                    {
+                        "year": "2025",
+                        "title": "`Bootcamp Desarrollo FullstAAAck <br> Curso Desarollo en Java`"
+                    }
+                ],
+                "jobs": [
+                    {
+                        "year": "2018-2019",
+                        "title": "Esports Coach @ Baskonia"
+                    },
+                    {
+                        "year": "2020",
+                        "title": "Expendedor @ AAAAvia <br> Freelance eSports Coach"
+                    },
+                    {
+                        "year": "2021",
+                        "title": "Freelance eSports Coach"
+                    },
+                    {
+                        "year": "2022",
+                        "title": "AAAAAuxiliar @ Dreamfit <br> Gaming Content Leader @ Cracked.club <br> Freelance eSports Coach"
+                    },
+                    {
+                        "year": "►",
+                        "title": ""
+                    },
+                    {
+                        "year": "2024",
+                        "title": "Monitor Polivalente @ Dreamfit"
+                    },
+                    {
+                        "year": "►",
+                        "title": ""
+                    }
+                ]
             },
-            "stats":{
-                "languages":"Programming Languages",
-                "frontend":"Front-end skills",
-                "backend":"Back-end skills",
-                "softskills":"Soft skills",
+            "stats": {
+                "languages": "Programming Languages",
+                "frontend": "Front-end skills",
+                "backend": "Back-end skills",
+                "softskills": "Soft skills",
                 "extras": "Extras",
-
-                "initiative":"Initiative",
-                "stress":"Stress Management",
-                "analytical":"Analytic Thinking",
-                "knowledge":"Knowledge Sharing",
-                "communication":"Communication",
-                "problem":"Problem Solving",
-
-                "spanish":"Spanish",
-                "spanishskill":"Native",
-                "english":"English",
-                "englishskill":"B2 GSE 59-75 (Intermediate)",
-                "car":"Car Driving License (B)",
-                "bike":"Motorcycle Driving License (A2)"
+                "initiative": "Initiative",
+                "stress": "Stress Management",
+                "analytical": "Analytic Thinking",
+                "knowledge": "Knowledge Sharing",
+                "communication": "Communication",
+                "problem": "Problem Solving",
+                "spanish": "Spanish",
+                "spanishskill": "Native",
+                "english": "English",
+                "englishskill": "B2 GSE 59-75 (Intermediate)",
+                "car": "Car Driving License (B)",
+                "bike": "Motorcycle Driving License (A2)"
             },
-            "projects":{
-                "title":"Proyectos",
-                "subtitle":"Proyectos"
+            "projects": {
+                "title": "Proyectos",
+                "subtitle": "Proyectos"
             }
         }
     }
