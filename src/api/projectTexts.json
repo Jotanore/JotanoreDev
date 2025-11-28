@@ -1,0 +1,14 @@
+{
+    "es": {
+        "proj_webv1": "Version 1 de mi landing web, tecnologías usadas: HTML, CSS, y JS.",
+        "proj_quantum": "Tira el dado, cada vez que pulsas el boton se cambia la imagen, hasta que lo descubres no sabes que numero es. Tecnologías usadas: HTML, CSS, y JS.",
+        "proj_karthub": "Parte Front del proyecto KartHub, tecnologías usadas: HTML, Tailwind, y JS.",
+        "proj_karthub2": "Parte Back del proyecto KartHub, tecnologías usadas: Node, Express, MongoDB, y JS."
+    },
+    "en": {
+        "proj_webv1": "Version 1 of my landing web, technologies used: HTML, CSS, and JS.",
+        "proj_quantum": "Roll the dice, every time you click the button the image changes, until you look again you don't know what number it is. Technologies used: HTML, CSS, and JS.",
+        "proj_karthub": "Front part of the KartHub project, technologies used: HTML, Tailwind, and JS.",
+        "proj_karthub2": "Back part of the KartHub project, technologies used: Node, Express, MongoDB, and JS."
+    }
+}
