@@ -14,6 +14,8 @@ const eventsUp = document.getElementById("events-up");
 const eventsDown = document.getElementById("events-down");
 const eventsUpVertical = document.getElementById("events-up-vertical");
 const eventsDownVertical = document.getElementById("events-down-vertical");
+let projects;
+let projectTexts;
 let isExperienceVisible = false;
 let isSpanish = true;
 let activeView = "index";
@@ -24,6 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById("btn-es")?.addEventListener('click', () => {
         isSpanish = true;
         languageManager('es');
+        drawProjects();
         const langData = textsData[isSpanish ? 'es' : 'en'];
         refreshExperience();
         createEvent(eventsUp, langData.experience.studies, "text-stone-600", "flex flex-col-reverse");
@@ -36,6 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById("btn-en")?.addEventListener('click', () => {
         isSpanish = false;
         languageManager('en');
+        drawProjects();
         const langData = textsData[isSpanish ? 'es' : 'en'];
         refreshExperience();
         createEvent(eventsUp, langData.experience.studies, "text-stone-600", "flex flex-col-reverse");
@@ -46,6 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         timelineAnimationVertical();
     });
     textsData = await getTexts();
+    projects = await getProjects();
     const langData = textsData[isSpanish ? 'es' : 'en'];
     logo.addEventListener('click', showIndex);
     indexButton.addEventListener('click', showIndex);
@@ -227,6 +232,16 @@ function showProjects() {
 }
 async function getProjects() {
     try {
+        const response = await fetch('./src/api/projectTexts.json');
+        if (!response.ok)
+            throw new Error('Error getting project texts');
+        projectTexts = await response.json();
+        console.log(projectTexts);
+    }
+    catch (error) {
+        console.log(error);
+    }
+    try {
         const response = await fetch('./src/api/projects.json');
         if (!response.ok)
             throw new Error('Error getting projects');
@@ -239,18 +254,21 @@ async function getProjects() {
     }
 }
 async function drawProjects() {
-    const projects = await getProjects();
+    const lang = isSpanish ? 'es' : 'en';
+    const projectContainer = document.getElementById('projects');
+    if (projectContainer)
+        projectContainer.innerHTML = '';
     projects.forEach((project) => {
-        const projectContainer = document.getElementById('projects');
+        const projectActiveTexts = projectTexts[lang][project.description];
         const html = `
-            <div class="col max-w-72">
-                <div class="card h-full">
-                <img src="${project.img}" class="card-img-top max-h-60" alt="...">
-                <div class="card-body">
+            <div class="col h-[26rem] max-w-72">
+                <div class="card h-full flex flex-col">
+                <img src="${project.img}" class="card-img-top max-h-36 object-cover" alt="...">
+                <div class="card-body flex-1 ">
                     <h5 class="card-title">${project.name}</h5>
-                    <p class="card-text">${project.description}</p>
+                    <p class="card-text">${projectActiveTexts}</p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer mt-auto">
                     ${project.link ? `<a href="${project.link}" class="btn btn-dark">Link</a>` : ''}
                     <a href="${project.github}" class="btn btn-outline-dark">GitHub Repo</a>
                 </div>

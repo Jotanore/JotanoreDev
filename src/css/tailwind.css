@@ -228,6 +228,10 @@
   margin-top: 2rem
 }
 
+.mt-auto {
+  margin-top: auto
+}
+
 .block {
   display: block
 }
@@ -280,8 +284,72 @@
   height: 100%
 }
 
+.h-32 {
+  height: 8rem
+}
+
+.h-60 {
+  height: 15rem
+}
+
+.h-64 {
+  height: 16rem
+}
+
+.h-80 {
+  height: 20rem
+}
+
+.h-96 {
+  height: 24rem
+}
+
+.h-\[26rem\] {
+  height: 26rem
+}
+
 .max-h-60 {
   max-height: 15rem
+}
+
+.max-h-32 {
+  max-height: 8rem
+}
+
+.max-h-20 {
+  max-height: 5rem
+}
+
+.max-h-\[30\%\] {
+  max-height: 30%
+}
+
+.max-h-\[60\%\] {
+  max-height: 60%
+}
+
+.max-h-80 {
+  max-height: 20rem
+}
+
+.max-h-36 {
+  max-height: 9rem
+}
+
+.min-h-60 {
+  min-height: 15rem
+}
+
+.min-h-32 {
+  min-height: 8rem
+}
+
+.min-h-16 {
+  min-height: 4rem
+}
+
+.min-h-\[30\%\] {
+  min-height: 30%
 }
 
 .w-1 {
@@ -422,6 +490,10 @@
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse))
 }
 
+.overflow-auto {
+  overflow: auto
+}
+
 .overflow-hidden {
   overflow: hidden
 }
@@ -518,6 +590,11 @@
 
 .to-\[85\%\] {
   --tw-gradient-to-position: 85%
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover
 }
 
 .px-4 {
@@ -817,6 +894,11 @@ html, body {
 
   .md\:p-8 {
     padding: 2rem
+  }
+
+  .md\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem
   }
 
   .md\:pl-0 {
